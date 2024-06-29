@@ -10,6 +10,7 @@ import Mp from './pages/mercadoPago'
 import Teams from './pages/team'
 import Torneios from './pages/tournament'
 import Teams2 from './pages/teams'
+import Loginv2 from './pages/login2'
 
  
 function App() {
@@ -20,6 +21,7 @@ function App() {
        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/login2" element={<Loginv2 />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/riot" element={<Riot />} />
           <Route path="/perfil" element={<Perfil />} />
