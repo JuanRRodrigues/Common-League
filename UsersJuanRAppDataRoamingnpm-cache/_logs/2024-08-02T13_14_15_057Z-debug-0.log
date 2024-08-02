@@ -5,9 +5,9 @@
 4 silly config:load:file:C:\Users\JuanR\OneDrive\Documentos\GitHub\Commom-League\.npmrc
 5 silly config:load:file:C:\Users\JuanR\.npmrc
 6 silly config:load:file:C:\Users\JuanR\AppData\Roaming\npm\etc\npmrc
-7 verbose title npm exec vite --port=4000
-8 verbose argv "exec" "--" "vite" "--port=4000"
-9 verbose logfile logs-max:10 dir:C:\Users\JuanR\OneDrive\Documentos\GitHub\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-06-24T11_31_47_114Z-
-10 verbose logfile C:\Users\JuanR\OneDrive\Documentos\GitHub\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-06-24T11_31_47_114Z-debug-0.log
+7 verbose title npm run dev
+8 verbose argv "run" "dev"
+9 verbose logfile logs-max:10 dir:C:\Users\JuanR\OneDrive\Documentos\GitHub\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-08-02T13_14_15_057Z-
+10 verbose logfile C:\Users\JuanR\OneDrive\Documentos\GitHub\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-08-02T13_14_15_057Z-debug-0.log
 11 silly logfile start cleaning logs, removing 2 files
 12 silly logfile done cleaning log files
