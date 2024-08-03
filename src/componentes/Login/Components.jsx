@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+
+
+
+
 export const Container = styled.div`
-background-color: #fff;
+
 border-radius: 10px;
 
 
@@ -14,6 +18,7 @@ min-height: 400px;
 export const SignUpContainer = styled.div`
  position: absolute;
  top: 0;
+
  height: 100%;
  transition: all 0.6s ease-in-out;
  left: 0;
@@ -32,6 +37,7 @@ export const SignUpContainer = styled.div`
 export const SignInContainer = styled.div`
 position: absolute;
 top: 0;
+
 height: 100%;
 transition: all 0.6s ease-in-out;
 left: 0;
@@ -41,7 +47,7 @@ ${props => (props.signinIn !== true ? `transform: translateX(100%);` : null)}
 `;
 
 export const Form = styled.form`
-background-color: #ffffff;
+background-color: #2b2a2a;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -54,6 +60,7 @@ text-align: center;
 export const Title = styled.h1`
 font-weight: bold;
 margin: 0;
+color: white;
 `;
 
 export const Input = styled.input`
@@ -67,8 +74,8 @@ width: 50%;
 
 export const Button = styled.button`
    border-radius: 20px;
-   border: 1px solid #31027c;
-   background-color: #5b00af;
+   border: 1px solid #ffffff;
+   background-color: #e21203;
    color: #ffffff;
    font-size: 12px;
    font-weight: bold;
@@ -89,7 +96,7 @@ border-color: #ffffff;
 `;
 
 export const Anchor = styled.a`
-color: #333;
+color: #ffffff;
 font-size: 14px;
 text-decoration: none;
 margin: 15px 0;
@@ -99,6 +106,7 @@ position: absolute;
 top: 0;
 left: 50%;
 width: 50%;
+
 height: 100%;
 overflow: hidden;
 transition: transform 0.6s ease-in-out;
@@ -108,21 +116,20 @@ ${props =>
 `;
 
 export const Overlay = styled.div`
-background: #470197;
-background: -webkit-linear-gradient(to right, #620175, #2f015a);
-background: linear-gradient(to right, #620175, #2f015a);
-background-repeat: no-repeat;
-background-size: cover;
-background-position: 0 0;
-color: #ffffff;
-position: relative;
-left: -100%;
-height: 100%;
-width: 200%;
-transform: translateX(0);
-transition: transform 0.6s ease-in-out;
-${props => (props.signinIn !== true ? `transform: translateX(50%);` : null)}
+  background: url('/imagens/galeria/1.jpg'); /* Caminho para a sua imagem */
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  ${props => (props.signinIn !== true ? `transform: translateX(50%);` : null)}
 `;
+
+
 
 export const OverlayPanel = styled.div`
     position: absolute;
