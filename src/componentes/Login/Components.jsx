@@ -1,14 +1,7 @@
 import styled from 'styled-components';
 
-
-
-
-
 export const Container = styled.div`
-
 border-radius: 10px;
-
-
 overflow: hidden;
 width: 678px;
 max-width: 100%;
@@ -33,11 +26,9 @@ export const SignUpContainer = styled.div`
  : null}
 `;
 
-
 export const SignInContainer = styled.div`
 position: absolute;
 top: 0;
-
 height: 100%;
 transition: all 0.6s ease-in-out;
 left: 0;
@@ -60,6 +51,7 @@ text-align: center;
 export const Title = styled.h1`
 font-weight: bold;
 margin: 0;
+text-shadow: 1px 1px 2px black;
 color: white;
 `;
 
@@ -76,6 +68,7 @@ export const Button = styled.button`
    border-radius: 20px;
    border: 1px solid #ffffff;
    background-color: #e21203;
+
    color: #ffffff;
    font-size: 12px;
    font-weight: bold;
@@ -106,7 +99,6 @@ position: absolute;
 top: 0;
 left: 50%;
 width: 50%;
-
 height: 100%;
 overflow: hidden;
 transition: transform 0.6s ease-in-out;
@@ -121,6 +113,7 @@ export const Overlay = styled.div`
   background-size: cover;
   color: #ffffff;
   position: relative;
+  
   left: -100%;
   height: 100%;
   width: 200%;
@@ -158,9 +151,10 @@ export const RightOverlayPanel = styled(OverlayPanel)`
 `;
 
 export const Paragraph = styled.p`
-font-size: 14px;
+  font-size: 14px;
   font-weight: 100;
   line-height: 20px;
   letter-spacing: 0.5px;
-  margin: 20px 0 30px
+  margin: 20px 0 30px;
+  text-shadow: 1px 1px 2px black; 
 `;
