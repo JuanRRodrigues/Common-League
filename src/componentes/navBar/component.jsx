@@ -19,30 +19,19 @@ export const wrapper = styled.div`
     justify-content: space-between;
 `
 
-export const a = styled.a`
-    position: relative;
-    align-items: center;
-    text-decoration: none;
-    font-size: 18px;
-    color: #fff;
-    font-weight: 500;
-    margin-left: 100px;
-
-
-    &::before{
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: #fff;
-        transition: width 3.s;
-    }
-
-     &:hover::before{
-        width: 100%;
-     }
-
-
+export const item = styled.div`
+    display: flex;
     `;
+
+    export const input = styled.input`
+        border: none;
+        outline: none;
+    `
+
+    export const items = styled.div`
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    `
+
+    
