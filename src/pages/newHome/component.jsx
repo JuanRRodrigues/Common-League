@@ -1,9 +1,20 @@
 import styled from 'styled-components';
 
-export const Backgroundgradient = styled.div`
-  background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
-  width: 100%;
-  min-height: 100vh;
+export const main = styled.main`
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 8px solid var(--bgColor);
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  overflow: hidden;
+  transition: 0.5;
+  background: gray;
+
+
 `;
 
 export const AppContainer = styled.div`
@@ -22,3 +33,6 @@ export const ConteudoGaleria = styled.section`
   flex-direction: column;
   flex-grow: 1;
 `;
+
+
+

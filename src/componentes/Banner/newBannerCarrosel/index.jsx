@@ -1,12 +1,32 @@
-import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swipper/css';
+import React, { useState} from 'react'
+import games from '../../../fotos.json';
+import styled from "styled-components";
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation'
-import '/gameSwiper.css'
 import {EffectCoverflow, Navigation, Autoplay} from 'swiper/modules'
+import './gameSwiper.css';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-function BannerSwiper() {
+// Import Swiper styles
+import 'swiper/css';
+
+const ImagensContainer = styled.div`
+  
+`
+
+const Imagen = styled.img`
+  width: 200px;
+  height: 100px;
+`
+
+function BannerSwiper({ game = [games] }){
+    const [active, setActive] = useState(false);
+    const [fotosDaGaleria, setFotosDaGaleria] = useState(games);
+    const [fotosSelecionada, setFotosSelecionadas] = useState(null);
+    const handleToggleVideo = () => {
+        setActive(!active);
+    }
     return (
         <Swiper
         effect={'coverflow'}
@@ -29,20 +49,39 @@ function BannerSwiper() {
         modules={[EffectCoverflow, Navigation, Autoplay]}
         className='gameSwiper'
         >
+{games.map(game => (
 <SwiperSlide key={game.id}>
     <div className='gameSlider'>
-        <img src={game.img} alt="Game Image"/>
-            <div>
-                <h2>{game.title}</h2>
-                <p>{game.description}</p>
-                <div></div>
-            </div>
+        <Imagen src={game.path} alt="Game Image"/>
+           <ImagensContainer>
+           <h2>{game.titulo}</h2>
+           <p>{game.titulo}</p>
+           <div className='buttons'>
+                <a href="#" className='orderBtn'>
+                    Order Now
+                </a>
+                <a href="#" className='planBtn' onClick={handleToggleVideo}>
+                        <span className='pause'>
+                            <i className='bi bi-pause-fill'></i>
+                        </span>
+                            <span className='paly'>
+                                <i className='bi bi-pause-fill'></i>
+                            </span>
+                        </a>
+                    </div>
+           </ImagensContainer>
+       
     </div>
-        <h4>{game.title}</h4>
 </SwiperSlide>
-
+))} 
         </Swiper>
     )
+
+
+
+
+           
+
 }
 
 export default BannerSwiper;

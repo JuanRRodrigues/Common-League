@@ -1,0 +1,18 @@
+.swiper {
+    width: 90%;
+    padding-bottom: 30px ;
+}
+
+.swipper-slide{
+    width: 550px;
+    height: 350px;
+}
+
+/* .gameSlider{
+    position: relative;
+    width: 50px;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    Overflow: hidden;
+}

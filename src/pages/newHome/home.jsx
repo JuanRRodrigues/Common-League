@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import EstilosGlobais from "../../componentes/GlobaStyle";
-import Cabecalho from "../../componentes/Header";
+import SideMenu from "../../componentes/mainSideBar/SideMenu.jsx";
 import BarSide from "../../componentes/BarSide";
 import Banner from "../../componentes/Banner";
 import bannerBackground from '../../assets/banner.png';
@@ -10,11 +10,22 @@ import { useState } from "react";
 import ModalZoom from "../../componentes/ModalZoom";
 import { Navigate } from "react-router-dom";
 import * as Components from './component'
+import GameSwiper from '../../componentes/Banner/newBannerCarrosel/index'
 
-const Backgroundgradient = styled.div`
-  background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
+const Backgroundgradient = styled.main`
+  background: #424242;
   width: 100%;
   min-height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 8px solid var(--bgColor);
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  overflow: hidden;
+  transition: 0.5;
 `;
 
 
@@ -29,28 +40,12 @@ const App = () => {
  // }
 
   return (
+    <Components.main> 
     <Backgroundgradient>
       <EstilosGlobais />
-      <Components.AppContainer>
-        <Cabecalho />
-        <Components.MainContainer>
-          <BarSide />
-          <Components.ConteudoGaleria>
-            <Banner
-              texto="Bem Vindo ao Common League!"
-              backgroundImage={bannerBackground}
-            />
-            <GaleriaPlayers
-              aoFotoSelecionada={foto => setFotosSelecionadas(foto)}
-              fotos={fotosDaGaleria}
-            />
-          </Components.ConteudoGaleria>
-        </Components.MainContainer>
-      </Components.AppContainer>
-      <ModalZoom foto={fotosSelecionada}
-        aoFechar={() => setFotosSelecionadas(null)}
-      />
+      <SideMenu />
     </Backgroundgradient>
+  </Components.main>
   );
 };
 
