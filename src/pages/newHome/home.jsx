@@ -11,7 +11,9 @@ import ModalZoom from "../../componentes/ModalZoom";
 import { Navigate } from "react-router-dom";
 import * as Components from './component'
 import GameSwiper from '../../componentes/Banner/newBannerCarrosel/index'
-
+import HomeIcon from '@mui/icons-material/Home';
+import Header
+ from "../../componentes/MainHeader/index.jsx";
 const Backgroundgradient = styled.main`
   background: #424242;
   width: 100%;
@@ -44,6 +46,10 @@ const App = () => {
     <Backgroundgradient>
       <EstilosGlobais />
       <SideMenu />
+      <Components.Banner>
+      <Header />
+      </Components.Banner>
+      
     </Backgroundgradient>
   </Components.main>
   );

@@ -34,5 +34,20 @@ export const ConteudoGaleria = styled.section`
   flex-grow: 1;
 `;
 
+export const Banner = styled.section`
+    position: relative;
+    width: 85%;
+    right: 10px;
+    top: 15px;
+    height: 95%;
+    border-radius: 30px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: white;
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+    transition: 1s;
+`;
+
 
 
