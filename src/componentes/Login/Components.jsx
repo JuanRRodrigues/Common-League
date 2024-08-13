@@ -38,7 +38,7 @@ ${props => (props.signinIn !== true ? `transform: translateX(100%);` : null)}
 `;
 
 export const Form = styled.form`
-background-color: #2b2a2a;
+background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
 display: flex;
 align-items: center;
 justify-content: center;

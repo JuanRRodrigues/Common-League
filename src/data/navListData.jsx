@@ -1,9 +1,14 @@
+import HomeIcon from '@mui/icons-material/Home';
+import GamepadIcon from '@mui/icons-material/Gamepad';
+
+
+
 const navListData = [
     {
         id: 1,
         target: 'Home',
         name: 'Home',
-        icons: 'bi-house-door',
+        icons: <HomeIcon/>,
         active: true,
     },
     {
