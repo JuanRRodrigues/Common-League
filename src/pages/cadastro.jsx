@@ -9,10 +9,7 @@ width: 100%;
 min-height: 100vh;
 `
 
-
-
 const App = () => {
-
   return (
     <Backgroundgradient>
       <EstilosGlobais />

@@ -9,10 +9,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import ShareIcon from '@mui/icons-material/Share';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
-function SideMenu() {
+function SideMenu({active}) {
     const [navData, setNavData] = useState(NavListData);
     return (
-    <div className='SideMenu'>
+    <div className={`SideMenu ${active ? 'active': undefined}`}>
         <a href="#" className='logo'>
         <SportsEsportsIcon/>
             <span className='brand'>Commom</span>

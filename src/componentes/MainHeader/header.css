@@ -44,7 +44,7 @@ header {
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 1px;
     border-radius: 10px;
     box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.35);
@@ -76,4 +76,24 @@ header {
 .userItems .avatar .user a{
     text-decoration: none;
     font-size: 0.6rem;
+}
+
+.userItems .icon .like,
+.userItems .icon .bag{
+position: absolute;
+right: 0;
+bottom: 10px;
+font-size: 0.8rem;
+font-weight: 800;
+height: 14px;
+width: 14px;
+padding: 3px;
+color: white;
+background: red ;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+
+
+
 }

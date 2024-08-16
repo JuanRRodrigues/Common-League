@@ -6,7 +6,7 @@ import Banner from "../../componentes/Banner";
 import bannerBackground from '../../assets/banner.png';
 import GaleriaPlayers from "../../componentes/GaleryPlayers";
 import fotos from '../../fotos.json';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalZoom from "../../componentes/ModalZoom";
 import { Navigate } from "react-router-dom";
 import * as Components from './component'
@@ -15,7 +15,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import Header
  from "../../componentes/MainHeader/index.jsx";
 const Backgroundgradient = styled.main`
-  background: #424242;
+  background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
   width: 100%;
   min-height: 100vh;
   top: 0;
@@ -34,10 +34,28 @@ const Backgroundgradient = styled.main`
 const App = () => {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos);
   const [fotosSelecionada, setFotosSelecionadas] = useState(null);
-
   const token = sessionStorage.getItem('token');
+  const [active, setActive] = useState(false);
 
- // if (!token) {
+  const handleTogleActive = () => {
+    setActive(!active);
+  };
+
+const fetchData = () => {
+  fetch('http://localhost:4000/api/gamesData.json')
+    .then(res => res.json())
+    .then(data => {
+      setGames(data);
+    })
+    .catch(e => console.log(e.menssage));
+};
+
+useEffect(() => {
+  fetchData();
+}, []);
+
+
+// if (!token) {
  //   return <Navigate to="/login" />;
  // }
 
@@ -45,9 +63,9 @@ const App = () => {
     <Components.main> 
     <Backgroundgradient>
       <EstilosGlobais />
-      <SideMenu />
-      <Components.Banner>
-      <Header />
+      <SideMenu active={active}/>
+      <Components.Banner className={`banner ${active ? 'active' : undefined}`}>
+      <Header toggleActive={handleTogleActive}/>
       </Components.Banner>
       
     </Backgroundgradient>

@@ -1,5 +1,8 @@
 import HomeIcon from '@mui/icons-material/Home';
 import GamepadIcon from '@mui/icons-material/Gamepad';
+import homeIcon from '../../public/icones/home.svg';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 
 
@@ -8,28 +11,28 @@ const navListData = [
         id: 1,
         target: 'Home',
         name: 'Home',
-        icons: <HomeIcon/>,
+        icon: 'bi bi-house-door',
         active: true,
     },
     {
         id:2,
-        target: 'cartegories',
-        name: 'Categories',
-        icon: 'bi-window-stack',
+        target: 'Championships',
+        name: 'Championships',
+        icon: 'bi bi-trophy',
         active: false,
     },
     {
         id: 3,
-        target: 'library',
-        name: 'My Library',
-        icon: 'bi-bag',
+        target: 'Team',
+        name: 'Team',
+        icon: 'bi bi-people',
         active: false,
     },
     {
         id: 4,
-        target: 'bag',
-        name: 'My Bag',
-        icon: 'bi-bag',
+        target: 'Perfil',
+        name: 'Perfil',
+        icon: 'bi bi-person-badge',
         active: false,
     },
 ];

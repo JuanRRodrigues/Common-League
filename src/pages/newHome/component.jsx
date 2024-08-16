@@ -12,7 +12,7 @@ export const main = styled.main`
   gap: 30px;
   overflow: hidden;
   transition: 0.5;
-  background: gray;
+  background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
 
 
 `;
@@ -36,16 +36,15 @@ export const ConteudoGaleria = styled.section`
 
 export const Banner = styled.section`
     position: relative;
-    width: 85%;
+    width: 100%;
     right: 10px;
     top: 15px;
     height: 95%;
     border-radius: 30px;
-    border-radius: 30px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    background: white;
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
+    background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
+    box-shadow: -5px -5px 15px rgba(143, 2, 2, 0.1),
+    5px 5px 15px rgba(167, 0, 0, 0.35);
     transition: 1s;
 `;
 
