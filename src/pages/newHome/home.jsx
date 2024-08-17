@@ -12,8 +12,11 @@ import { Navigate } from "react-router-dom";
 import * as Components from './component'
 import GameSwiper from '../../componentes/Banner/newBannerCarrosel/index'
 import HomeIcon from '@mui/icons-material/Home';
-import Header
- from "../../componentes/MainHeader/index.jsx";
+import Header from "../../componentes/MainHeader/index.jsx";
+import Home from "../chapinhips/home.jsx"
+
+
+ 
 const Backgroundgradient = styled.main`
   background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
   width: 100%;
@@ -36,13 +39,14 @@ const App = () => {
   const [fotosSelecionada, setFotosSelecionadas] = useState(null);
   const token = sessionStorage.getItem('token');
   const [active, setActive] = useState(false);
+  const [games, setGames] = useState([]);
 
   const handleTogleActive = () => {
     setActive(!active);
   };
 
 const fetchData = () => {
-  fetch('http://localhost:4000/api/gamesData.json')
+  fetch('http://localhost:5173//api/gamesData.json')
     .then(res => res.json())
     .then(data => {
       setGames(data);
@@ -66,6 +70,7 @@ useEffect(() => {
       <SideMenu active={active}/>
       <Components.Banner className={`banner ${active ? 'active' : undefined}`}>
       <Header toggleActive={handleTogleActive}/>
+      <Home games={games}/>
       </Components.Banner>
       
     </Backgroundgradient>

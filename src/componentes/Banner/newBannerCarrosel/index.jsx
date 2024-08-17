@@ -16,72 +16,50 @@ const ImagensContainer = styled.div`
 `
 
 const Imagen = styled.img`
-  width: 200px;
-  height: 100px;
+ 
 `
 
-function BannerSwiper({ game = [games] }){
+
+
+function BannerSwiper({ games }) {
+    const duplicatedGames = [...games, ...games, ...games];
     const [active, setActive] = useState(false);
-    const [fotosDaGaleria, setFotosDaGaleria] = useState(games);
-    const [fotosSelecionada, setFotosSelecionadas] = useState(null);
+
     const handleToggleVideo = () => {
         setActive(!active);
     }
     return (
         <Swiper
-        effect={'coverflow'}
-        grabcursor={true}
-        navigation={true}
-        loop={true}
-        centeredSlides={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-            rotate: 35,
-            stretch: 200,
-            depth: 250,
-            modifier: 1,
-            slideShadows: true,
-        }}
-    //        autoplay={{
-   //             delay: 2500,
-   //             disableOnInteraction: false,
-    //    }}
-        modules={[EffectCoverflow, Navigation, Autoplay]}
-        className='gameSwiper'
+            effect={'coverflow'}
+            grabCursor={true}
+            spaceBetween={-120}
+            navigation={true}
+            loop={false}
+            centeredSlides={false} 
+            slidesPerView={'auto'} // Change this to the number of slides you want visible at a time
+            coverflowEffect={{
+                rotate: 35,
+                stretch: 0, // Adjust this to 0 to avoid stretching slides
+                depth: 250,
+                modifier: 1,
+                slideShadows: true,
+            }}
+          //  autoplay={{
+       //         delay: 2500,
+       //         disableOnInteraction: false,
+       //     }}
+            modules={[EffectCoverflow, Navigation, Autoplay]}
+            className='gameSwiper'
         >
-{games.map(game => (
-<SwiperSlide key={game.id}>
-    <div className='gameSlider'>
-        <Imagen src={game.path} alt="Game Image"/>
-           <ImagensContainer>
-           <h2>{game.titulo}</h2>
-           <p>{game.titulo}</p>
-           <div className='buttons'>
-                <a href="#" className='orderBtn'>
-                    Order Now
-                </a>
-                <a href="#" className='planBtn' onClick={handleToggleVideo}>
-                        <span className='pause'>
-                            <i className='bi bi-pause-fill'></i>
-                        </span>
-                            <span className='paly'>
-                                <i className='bi bi-pause-fill'></i>
-                            </span>
-                        </a>
+            {games.map(game => (
+                <SwiperSlide key={game.id}>
+                    <div className='gameSlider'>
+                        <img src={game.img} alt="Game Image"/>
                     </div>
-           </ImagensContainer>
-       
-    </div>
-</SwiperSlide>
-))} 
+                </SwiperSlide>
+            ))}
         </Swiper>
-    )
-
-
-
-
-           
-
+    );
 }
 
 export default BannerSwiper;

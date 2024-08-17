@@ -43,10 +43,44 @@ export const Banner = styled.section`
     border-radius: 30px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
-    box-shadow: -5px -5px 15px rgba(143, 2, 2, 0.1),
-    5px 5px 15px rgba(167, 0, 0, 0.35);
+    box-shadow: -5px -5px 15px rgba(143, 2, 2, 0.1), 5px 5px 15px rgba(167, 0, 0, 0.35);
     transition: 1s;
+
+    .active {
+        position: relative;
+        width: 93%;
+        transition: 1s;
+    }
 `;
+
+
+export const Section = styled.section`
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 100vh;
+  padding: 0 30px;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, top 1s ease-in-out;
+  transform-origin: bottom;
+  z-index: 1000;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.active {
+    top: 100px;
+    height: auto;
+    overflow-y: visible;
+    opacity: 1;
+  }
+`;
+
+
+
+
 
 
 
