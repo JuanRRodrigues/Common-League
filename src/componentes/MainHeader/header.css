@@ -12,6 +12,8 @@ header {
 }
 
 .menu {
+    position: relative;
+    left: 15%;
     font: 1.8rem;
     color: #ffff;
 }

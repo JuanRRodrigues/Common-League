@@ -16,6 +16,7 @@ import Header from "../../componentes/MainHeader/index.jsx";
 import Home from "../chapinhips/home.jsx"
 
 
+
  
 const Backgroundgradient = styled.main`
   background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
@@ -71,6 +72,10 @@ useEffect(() => {
       <Components.Banner className={`banner ${active ? 'active' : undefined}`}>
       <Header toggleActive={handleTogleActive}/>
       <Home games={games}/>
+      <GaleriaPlayers
+              aoFotoSelecionada={foto => setFotosSelecionadas(foto)}
+              fotos={fotosDaGaleria}
+            />
       </Components.Banner>
       
     </Backgroundgradient>

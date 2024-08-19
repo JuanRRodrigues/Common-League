@@ -45,6 +45,11 @@ export const Banner = styled.section`
     background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
     box-shadow: -5px -5px 15px rgba(143, 2, 2, 0.1), 5px 5px 15px rgba(167, 0, 0, 0.35);
     transition: 1s;
+    flex: 1;
+    overflow-y: auto; /* Permite rolagem apenas dentro do Banner */
+    max-height: 100vh; /* Limita a altura do Banner para manter a rolagem interna */
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none;  /* Para Internet Explorer e Edge */
 
     .active {
         position: relative;
