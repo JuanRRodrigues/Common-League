@@ -2,23 +2,15 @@ import React from "react";
 import * as Components from '../Widget/component'
 import { Link } from "react-router-dom";
 
-
-
-
-
-
 const Widget = ({ type }) => {
     let data;
-
-
-
     switch (type) {
         case "team":
             data = {
                 title: "Times",
                 counter: 2,
                 link: "Todos os Times",
-                icon: <PersonOutlinedIcon/>,
+                icon: "<PersonOutlinedIcon/>",
             };
             break;
             case "chanpionship":
@@ -26,7 +18,7 @@ const Widget = ({ type }) => {
                     title: "planos",
                     counter: 33,
                     link: "todos os capeonatos",
-                    icon: <InvetoryOutlinedIcon/>,
+                    icon: "<InvetoryOutlinedIcon/>",
                     
                 }
             default:
@@ -37,10 +29,20 @@ const Widget = ({ type }) => {
                     icon: null,
                 }
                 break;
-
-
     }
     return (
-        <></>
+        <Components.widgets>
+            <Components.leftRight>
+                <Components.title>{data.title}</Components.title>
+                <Components.counter>{data.counter}</Components.counter>
+                
+            </Components.leftRight>
+            <Components.leftRight>
+                {data.icon}
+            </Components.leftRight>
+        </Components.widgets>
     )
 }
+
+
+export default Widget;

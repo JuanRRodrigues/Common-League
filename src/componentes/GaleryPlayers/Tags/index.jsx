@@ -9,11 +9,12 @@ const TagsContainer = styled.section`
     align-items: center;
     gap: 64px;
     margin-top: 56px;
+    margin-left: 4%;
 `
 
 const TagTitulo = styled.h3`
     color: #D9D9D9;
-    font-size: 24px;
+    font-size: 30px;
     margin: 0;
 
 `
@@ -34,13 +35,14 @@ const Tag = styled.button`
     box-sizing: border-box;
     border: 2px solid transparent;
     &:hover {
-      border-color: #08ffde;
+        background: red;
+      
     }
 `
 
 const Tags = () => {
     return <TagsContainer>
-        <TagTitulo>Busque por tags:</TagTitulo>
+        <TagTitulo>Busque por Tags:</TagTitulo>
         <Div>
             {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
         </Div>

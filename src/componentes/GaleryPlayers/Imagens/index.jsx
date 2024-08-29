@@ -5,7 +5,6 @@ import BotaoIcone from "../../BotaoIcone";
 const Figure = styled.figure`
     width: ${props => props.$expandida ? '90%' : '460px'};
     max-width: 100%;
-    margin: 0;
     display: flex;
     flex-direction: column;
     & > img {
@@ -16,6 +15,7 @@ const Figure = styled.figure`
         background-color: #001634;
         border-radius: 0px 0px 20px 20px;
         color: white;
+        width: 100%;
         box-sizing: border-box;
         padding: 12px;
         h3 {
@@ -35,7 +35,9 @@ const Rodape = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 `;
+
 
 const BotaoParticipar = styled.button`
     background-color: #007bff;

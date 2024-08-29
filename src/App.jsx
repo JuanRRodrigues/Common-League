@@ -11,6 +11,7 @@ import Teams from './pages/team'
 import Torneios from './pages/tournament'
 import Teams2 from './pages/teams'
 import Loginv2 from './pages/login2'
+import ADM from './pages/Administrative'
 
  
 function App() {
@@ -25,11 +26,12 @@ function App() {
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/riot" element={<Riot />} />
           <Route path="/perfil" element={<Perfil />} />
-          <Route path="/Adm" element={<Adm/>} />
+          <Route path="/payment" element={<Adm/>} />
           <Route path="/mp" element={<Mp/>} />
           <Route path="/teams" element={< Teams/>} />
           <Route path="/torneios" element={< Torneios/>} />
           <Route path="/teamList" element={< Teams2/>} />
+          <Route path="/adm" element={< ADM/>} />
       </Routes>
     </BrowserRouter>
    
