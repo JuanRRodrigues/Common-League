@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import * as Yup from 'yup';
 import http from '../../http';
 import { useNavigate } from 'react-router-dom';
+import CreateAutoComplete from '../optionTest';
+import TeamService from '../../service/teamService copy';
+import { toast } from 'react-toastify';
+import Grid from '@mui/material/Grid';
 
 const StyledForm = styled(FormikForm)`
     max-width: 400px;
@@ -63,24 +67,16 @@ const StyledForm = styled(FormikForm)`
     }
 `;
 
-const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Nome do time é obrigatório'),
-    game: Yup.string().oneOf(['League of Legends', 'Overwatch', 'Paladins'], 'Jogo inválido').test({
-        name: 'is-lol',
-        message: 'O jogo deve ser League of Legends',
-        test: (value) => value === 'League of Legends',
-    }).required('Jogo é obrigatório'),
-});
-
 const ErrorMessageStyled = styled.div`
     color: red;
     font-size: 12px;
 `;
 
-const Form = () => {
+export default function TeamsForm({ handleClose, row, option = 'add'}) {
+    const ServiceTeam = new TeamService();
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
-
+    const externalValue = 'Red Canids'; // Deve corresponder a uma das opções
     useEffect(() => {
         http.get('auth/' + localStorage.getItem('login'))
             .then(response => {
@@ -92,57 +88,59 @@ const Form = () => {
             });
     }, []); // Adiciona uma dependência vazia para garantir que o efeito só seja executado uma vez
 
-    const handleIdUserChange = (e) => {
-        // Lógica para manipular a mudança de valor do campo idUser, se necessário
-    };
-
     return (
         <Formik
-            initialValues={{
-                name: '',
-                game: '',
-                idUser: localStorage.getItem('userId'), // Preenche com o id do usuário se userData estiver definido
+            validateOnChange
+            validateOnMount
+            initialValues={option === 'add' ? {} : { ...row }}
+            onSubmit={async (values, { setSubmitting }) => {
+                values.dataCreated = new Date().toLocaleDateString('en-US');
+
+                if (values.id > 0) {
+                    ServiceTeam.put(values)
+                        .then((response) => {
+                            toast.success('O registro foi atualizado');
+                        })
+                        .catch((error) => {
+                            toast.error('Ocorreu um erro ao atualizar o registro');
+                        });
+                }
+                handleClose();
             }}
-            validationSchema={validationSchema}
-            onSubmit={(values, actions) => {
-                console.log(values);
-                http.post('api/v1/teams/register', values, {})
-                    .then(response => {
-                        console.log(response.data);
-                        actions.resetForm();
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        console.log(values)
-                    });
-            }}
+            validationSchema={Yup.object().shape({
+                name: Yup.string().required('Nome do time é obrigatório'),
+                game: Yup.string()
+                    .oneOf(['League of Legends', 'Overwatch', 'Paladins'], 'Jogo inválido')
+                    .test('is-lol', 'O jogo deve ser League of Legends', value => value === 'League of Legends')
+                    .required('Jogo é obrigatório'),
+            })}
         >
-            {({ errors, touched }) => (
-                <StyledForm>
-                    <img className="logo" src="/imagens/Logo.png" alt="Logo do seu site" />
+            {(props) => {
+                const {
+                    touched,
+                    errors,
+                    handleSubmit,
+                    setFieldValue,
+                    setTouched,
+                } = props;
 
-                    <label htmlFor="name">Nome do Time:</label>
-                    <Field type="text" id="name" name="name" />
-                    <ErrorMessageStyled>{errors.name && touched.name && errors.name}</ErrorMessageStyled>
-
-                    <label htmlFor="game">Game:</label>
-                    <Field as="select" id="game" name="game">
-                        <option value="" disabled defaultValue>Selecione o jogo</option>
-                        <option value="League of Legends">League of Legends</option>
-                        <option value="Overwatch">Overwatch</option>
-                        <option value="Paladins">Paladins</option>
-                    </Field>
-                    <ErrorMessageStyled>{errors.game && touched.game && errors.game}</ErrorMessageStyled>
-
-                    <label htmlFor="idUser"></label>
-                    <Field type="hidden" id="idUser" name="idUser" value={localStorage.getItem('userId')} />
-                    <ErrorMessageStyled>{errors.idUser && touched.idUser && errors.idUser}</ErrorMessageStyled>
-
-                    <button type="submit" className="button-cadastro">Cadastre-se</button>
-                </StyledForm>
-            )}
+                return (
+                    <StyledForm onSubmit={handleSubmit} noValidate>
+                        <Grid justify="center" container spacing={3}>
+                            <CreateAutoComplete
+                                error={(errors.name && touched.name) && errors.name}
+                                setTouched={setTouched}
+                                name="team"
+                                value={externalValue}
+                                defaultValue={option === 'edit' ? row.name : ''}
+                                label="Nome do Time"
+                                setFieldValue={setFieldValue}
+                            />
+                        </Grid>
+                        <button type="submit">Enviar</button>
+                    </StyledForm>
+                );
+            }}
         </Formik>
     );
-};
-
-export default Form;
+}

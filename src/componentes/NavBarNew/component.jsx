@@ -1,8 +1,8 @@
-import styled from 'styled-componentes'
+import styled from 'styled-components';
 
 export const sideBarContainer = styled.div`
     flex: 1;
-    border: 0.5px solid (230, 227, 227);
+    border: 0.5px solid rgb(230, 227, 227);
     min-height: 100vh;
     background-color: white;
 `
@@ -20,7 +20,7 @@ export const logo = styled.img`
 
 export const hr = styled.hr`
     height: 0;
-    border: 0.5px solid rgb(230, 277, 277);
+    border: 0.5px solid rgb(230, 227, 227);
 `
 
 export const center = styled.div`
@@ -64,5 +64,13 @@ export const colorOptions = styled.div`
     border-radius: 5px;
     border: 1px solid;
     cursor: pointer;
+
+`
+
+export const span = styled.span`
+    font-size: 13px;
+    font-weight: 600;
+    color: gray;
+    margin-left: 10px;
 
 `

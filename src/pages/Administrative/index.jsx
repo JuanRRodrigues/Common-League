@@ -1,7 +1,7 @@
 
 import { styled } from "styled-components"
-import SideBar from "../../componentes/BarSide";
-import NavBar from "../../componentes/BarSide";
+import SideBar from "../../componentes/NavBarNew";
+import NavBar from "../../componentes/navBarSuperior";
 import * as Components from './component'
 import Widget from "../../componentes/Widget"
 const Backgroundgradient = styled.div`
@@ -12,8 +12,9 @@ const App = () => {
 
   return (
     <Backgroundgradient>
-      <SideBar/>
       <Components.home>
+        <SideBar/>
+        <Components.homeContainer>
           <NavBar/>
             <Components.widgets>
               <Widget type={"user"}/>
@@ -23,6 +24,7 @@ const App = () => {
           <div>
         
           </div>
+          </Components.homeContainer>
         </Components.home>
     </Backgroundgradient>
   )

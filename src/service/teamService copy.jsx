@@ -4,7 +4,7 @@ import ApiService from "../apiService";
 class TeamService extends ApiService{
 
     constructor(){
-        super('/api/teams')
+        super('api/team.json')
     }
 
     findById(id){
@@ -19,8 +19,8 @@ class TeamService extends ApiService{
         return this.put(`/${team.id}`, team);
     }
 
-    list(){
-        return this.get('/')
+    consult(){
+        return this.get('')
     }
 
     delete(id){

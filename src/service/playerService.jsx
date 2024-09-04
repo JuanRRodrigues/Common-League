@@ -4,7 +4,7 @@ import ApiService from "../apiService";
 class PlayerService extends ApiService{
 
     constructor(){
-        super('/api/players')
+        super('api/team.json')
     }
 
     findById(id){

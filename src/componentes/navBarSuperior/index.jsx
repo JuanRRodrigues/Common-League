@@ -1,25 +1,29 @@
-import { Component } from "react"
+
+import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import * as Components from '../navBarSuperior/component'
 
 
-
-
-const navBar = () => {
+const navBarSuperior = () => {
     return(
-        <Component.bar>
-            <Component.wrapper>
-                <Component.search>
-                    <Component.input placeholder='search...'/>
-                    <searchIcon/>
-                </Component.search>
-                <Component.items>
-                    <Languageicon/>
+        <Components.bar>
+            <Components.wrapper>
+                <Components.search>
+                    <Components.input placeholder='search...'/>
+                    <SearchOutlinedIcon/>
+                </Components.search>
+                <Components.items>
+                    <LanguageOutlinedIcon/>
                     English
-                </Component.items>
-                <Component.items>
-                    <DarkModeIcon/>
-                </Component.items>
+                </Components.items>
+                <Components.items>
+                    <DarkModeOutlinedIcon/>
+                </Components.items>
 
-            </Component.wrapper>
-        </Component.bar>
+            </Components.wrapper>
+        </Components.bar>
     )
 }
+
+export default navBarSuperior;
