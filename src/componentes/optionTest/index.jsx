@@ -1,101 +1,108 @@
 import Autocomplete from '@mui/material/Autocomplete';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import CircularProgress from '@mui/material/CircularProgress';
-import PlayerService from '../../service/playerService'; // Ajuste conforme necessário
-import TeamService from '../../service/teamService copy';
-import GameService from '../../service/teamService copy';
+import PlayerService from '../../service/playerService';
+import TeamService from '../../service/teamService';
+import GameService from '../../service/teamService'; // Atualize o caminho, se necessário
 
-export default function CreateAutoComplete({ id, label, error, name, setFieldValue, value: externalValue }) {
+export default function CreateAutoComplete({
+    name,
+    label,
+    error,
+    value,
+    setFieldValue,
+    onBlur
+}) {
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
-    const [value, setValue] = useState(null);
-    const [inputValue, setInputValue] = useState('');
-    const loading = open && options.length === 0;
-    const service = useRef(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         let active = true;
 
-        if (!loading) {
+        if (!open || options.length > 0) {
             return undefined;
         }
 
-        (async () => {
+        setLoading(true);
+
+        const fetchData = async () => {
             try {
+                let results = [];
+
                 if (name === 'player') {
-                    service.current = new PlayerService();
+                    const playerService = new PlayerService();
+                    results = (await playerService.consult()).data;
                 } else if (name === 'team') {
-                    service.current = new TeamService();
+                    const teamService = new TeamService();
+                    results = (await teamService.consult()).data;
                 } else if (name === 'game') {
-                    service.current = new GameService();
+                    const gameService = new GameService();
+                    results = (await gameService.consult()).data;
                 }
 
-                if (service.current) {
-                    const results = (await service.current.consult()).data;
-
-                    if (active) {
-                        setOptions(results);
-                    }
+                if (active) {
+                    setOptions(results);
+                    setLoading(false);
                 }
             } catch (error) {
                 console.error('Error fetching options:', error);
+                setLoading(false);
             }
-        })();
+        };
+
+        fetchData();
 
         return () => {
             active = false;
         };
-    }, [loading, name]); // Remover `value` e `inputValue` da lista de dependências
+    }, [open, name]);
 
-    useEffect(() => {
-        if (!open) {
-            setOptions([]);
-        }
-    }, [open]);
+    const handleChange = (event, newValue) => {
+        console.log('handleChange - Novo valor:', newValue); // Log do valor selecionado
+        setFieldValue(name, newValue); // Atualiza o valor no Formik
+    };
 
-    useEffect(() => {
-        // Atualiza o valor selecionado com base no valor externo
-        if (externalValue) {
-            const selectedOption = options.find(option => option.nome === externalValue);
-            setValue(selectedOption || null);
-            setInputValue(selectedOption ? selectedOption.nome : ''); // Atualiza o inputValue
+    const handleInputChange = (event, newValue) => {
+        console.log('handleInputChange - Novo valor digitado:', newValue); // Log do valor digitado
+        setFieldValue(name, newValue); // Atualiza o valor digitado (freeSolo)
+    };
+
+    const handleBlur = (event) => {
+        console.log('handleBlur - Campo perdeu o foco');
+        if (onBlur) {
+            onBlur(event);
         }
-    }, [externalValue, options]);
+    };
 
     return (
         <Autocomplete
             fullWidth
             open={open}
-            value={value}
-            onChange={(e, newValue) => {
-                setValue(newValue);
-                setFieldValue(name, newValue ? newValue.nome : '');
-            }}
-            onInputChange={(e, newInputValue) => {
-                setInputValue(newInputValue);
-            }}
+            value={value || ''} // Define o valor diretamente
+            onChange={handleChange} // Log quando o valor é selecionado
+            onInputChange={handleInputChange} // Log quando o valor é digitado
+            freeSolo
             onOpen={() => setOpen(true)}
             onClose={() => setOpen(false)}
-            isOptionEqualToValue={(option, value) => option.nome === value.nome}
-            getOptionLabel={(option) => option.nome || ''}
+            getOptionLabel={(option) => option.nome || option || ''} // Usa o valor diretamente se for string
             options={options}
             loading={loading}
+            onBlur={handleBlur} // Adiciona onBlur
             renderInput={(params) => (
                 <TextField
                     {...params}
-                    id={id}
                     label={label}
-                    name={name}
-                    helperText={error}
                     error={!!error}
+                    helperText={error}
                     InputProps={{
                         ...params.InputProps,
                         endAdornment: (
-                            <React.Fragment>
+                            <>
                                 {loading ? <CircularProgress color="inherit" size={20} /> : null}
                                 {params.InputProps.endAdornment}
-                            </React.Fragment>
+                            </>
                         ),
                     }}
                 />

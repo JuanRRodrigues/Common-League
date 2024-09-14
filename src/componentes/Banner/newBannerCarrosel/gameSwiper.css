@@ -12,10 +12,6 @@
 }
 
 
-.gameSlider {
-   
-}
-
 .gameSlider::after {
     position: absolute;
     content: '';
