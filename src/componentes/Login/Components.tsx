@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-// Define os tipos dos props para componentes com props personalizadas
+
 interface SignInProps {
     $signinIn?: boolean;
+    imageUrl?: string; 
 }
 
 export const Container = styled.div`
@@ -110,7 +111,7 @@ export const OverlayContainer = styled.div<SignInProps>`
 `;
 
 export const Overlay = styled.div<SignInProps>`
-  background: url('/imagens/galeria/1.jpg'); /* Caminho para a sua imagem */
+  background: url(${props => props.imageUrl});
   background-repeat: no-repeat;
   background-size: cover;
   color: #ffffff;

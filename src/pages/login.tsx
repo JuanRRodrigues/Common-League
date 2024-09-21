@@ -6,6 +6,7 @@ import http from "../http";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as Yup from 'yup';
+import { useEffect } from 'react';
 
 // Definindo os tipos dos valores do formulário
 interface FormValues {
@@ -40,6 +41,19 @@ const ErrorMessageStyled = styled.div`
 const App: React.FC = () => {
   const navigate = useNavigate();
   const [signIn, toggle] = React.useState(true);
+  const [imageUrl, setImageUrl] = React.useState('');
+
+  const imageUrls = [
+    '/imagens/galeria/1.jpg',
+    '/imagens/galeria/2.jpg',
+    '/imagens/galeria/3.jpg'
+  
+  ];
+
+  useEffect(() => {
+    const randomImage = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+    setImageUrl(randomImage);
+  }, []);
 
   const handleFormSubmit = (values: FormValues, actions: FormikHelpers<FormValues>) => {
     http.post('auth/login', values, {})
@@ -175,7 +189,7 @@ const App: React.FC = () => {
       </Formik>
 
       <Components.OverlayContainer $signinIn={signIn}>
-        <Components.Overlay $signinIn={signIn}>
+        <Components.Overlay $signinIn={signIn} imageUrl={imageUrl}>
           <Components.LeftOverlayPanel $signinIn={signIn}>
             <Components.Title>Welcome Back!</Components.Title>
             <Components.Paragraph>To keep connected with us please login with your personal info</Components.Paragraph>
