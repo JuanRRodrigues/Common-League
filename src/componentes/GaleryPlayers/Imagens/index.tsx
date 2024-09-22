@@ -21,7 +21,7 @@ const Imagem: React.FC<ImagemProps> = ({ foto, aoZoomSolicitado, aoAlternarFavor
     return (
         <div>
             <img src={foto.path} alt={foto.titulo} onClick={handleClick} />
-            <button onClick={handleFavoriteToggle}>Favorite</button>
+            <button onClick={handleFavoriteToggle}>View</button>
         </div>
     );
 };

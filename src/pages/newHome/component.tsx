@@ -43,10 +43,35 @@ export const Banner = styled.section`
   box-shadow: -5px -5px 15px rgba(143, 2, 2, 0.1), 5px 5px 15px rgba(167, 0, 0, 0.35);
   transition: 1s;
   flex: 1;
-  overflow-y: auto; /* Permite rolagem apenas dentro do Banner */
-  max-height: 100vh; /* Limita a altura do Banner para manter a rolagem interna */
-  scrollbar-width: none; /* Para Firefox */
-  -ms-overflow-style: none;  /* Para Internet Explorer e Edge */
+  overflow-y: auto; 
+  max-height: 100vh; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+
+  .active {
+    position: relative;
+    width: 93%;
+    transition: 1s;
+  }
+`;
+
+export const UserBanner = styled.section`
+  position: relative;
+  width: 100%;
+  right: 10px;
+  top: 15%;
+  height: 40%;
+  
+  border-radius: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: white;
+  box-shadow: -5px -5px 15px rgba(143, 2, 2, 0.1), 5px 5px 15px rgba(167, 0, 0, 0.35);
+  transition: 1s;
+  flex: 1;
+  overflow-y: auto; 
+  max-height: 100vh; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 
   .active {
     position: relative;

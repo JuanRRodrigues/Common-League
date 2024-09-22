@@ -15,40 +15,53 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     backgroundColor: '#f7f7f7',
     border: 'none',
-    borderRadius: '8px',
-    padding: '20px',
+    borderRadius: '10px',
+    padding: '30px',
     maxWidth: '400px',
     textAlign: 'center',
-    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-  }
+    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)',
+  },
 };
 
 // Define the styled components
 const StyledButton = styled.button<{ disabled?: boolean }>`
-  width: 100%;
-  padding: 10px;
+  background-color: ${props => (props.disabled ? '#ccc' : '#e63946')};
   color: white;
   border: none;
-  border-radius: 4px;
-  cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
-  margin: 8px auto;
-  background-color: ${props => props.disabled ? 'gray' : 'red'};
+  border-radius: 5px;
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  padding: 12px 20px;
+  font-size: 16px;
+  margin: 10px 0;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${props => (props.disabled ? '#ccc' : '#d62839')};
+  }
 `;
 
 const StyledInput = styled.input`
-  width: 95%;
-  padding: 8px;
-  margin-bottom: 16px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  &:focus {
+    border-color: #e63946;
+    outline: none;
+    box-shadow: 0 0 5px rgba(230, 57, 70, 0.5);
+  }
 `;
 
 const StyledLabel = styled.label`
   display: block;
-  margin-bottom: 10px;
-  color: #00000089;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
   text-align: left;
-  width: 100%;
 `;
 
 const FormModal: React.FC = () => {
@@ -100,41 +113,43 @@ const FormModal: React.FC = () => {
   return (
     <>
       <StyledButton onClick={openModal}>Associar conta Riot</StyledButton>
-      <Modal isOpen={isOpen} onRequestClose={closeModal}>
+      <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
         <div>
           <StyledLabel htmlFor="tagLine">Tag Line:</StyledLabel>
-          <StyledInput 
-            type="text" 
-            id="tagLine" 
-            value={tagLine} 
-            onChange={(e) => setTagLine(e.target.value)} 
+          <StyledInput
+            type="text"
+            id="tagLine"
+            value={tagLine}
+            onChange={(e) => setTagLine(e.target.value)}
+            placeholder="Digite sua tag line"
           />
-          
+
           <StyledLabel htmlFor="gameName">Game Name:</StyledLabel>
-          <StyledInput 
-            type="text" 
-            id="gameName" 
-            value={gameName} 
-            onChange={(e) => setGameName(e.target.value)} 
+          <StyledInput
+            type="text"
+            id="gameName"
+            value={gameName}
+            onChange={(e) => setGameName(e.target.value)}
+            placeholder="Digite o nome do jogo"
           />
-          
+
           <StyledButton onClick={handleSearch}>Buscar</StyledButton>
 
-          <StyledInput 
-            type="hidden" 
-            id="idTime" 
-            value={idTime} 
-            onChange={(e) => setIdTime(e.target.value)} 
-          />
-          
-          <StyledInput 
-            type="hidden" 
-            id="idPlayer" 
-            value={idPlayer} 
-            onChange={(e) => setIdPlayer(e.target.value)} 
+          <StyledInput
+            type="hidden"
+            id="idTime"
+            value={idTime}
+            readOnly
           />
 
-          <StyledButton 
+          <StyledInput
+            type="hidden"
+            id="idPlayer"
+            value={idPlayer}
+            readOnly
+          />
+
+          <StyledButton
             onClick={handleSubmit}
             disabled={!idTime || !idPlayer}
           >
