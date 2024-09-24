@@ -1,0 +1,13 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\JuanR\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.7.0
+2 info using node@v21.5.0
+3 silly config:load:file:C:\Users\JuanR\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config:load:file:C:\Users\JuanR\Downloads\git\Commom-League\.npmrc
+5 silly config:load:file:C:\Users\JuanR\.npmrc
+6 silly config:load:file:C:\Users\JuanR\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm exec vite --port=4000
+8 verbose argv "exec" "--" "vite" "--port=4000"
+9 verbose logfile logs-max:10 dir:C:\Users\JuanR\Downloads\git\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-09-24T01_54_45_746Z-
+10 verbose logfile C:\Users\JuanR\Downloads\git\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-09-24T01_54_45_746Z-debug-0.log
+11 silly logfile start cleaning logs, removing 2 files
+12 silly logfile done cleaning log files

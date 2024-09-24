@@ -6,6 +6,7 @@ import Riot from './pages/riot';
 import Perfil from './pages/perfil';
 import Adm from './pages/adm';
 import Mp from './pages/mercadoPago';
+import Team from './pages/team';
 //import Teams from './pages/team';
 //import Torneios from './pages/tournament';
 //import Teams2 from './pages/teams';
@@ -27,10 +28,10 @@ const App: React.FC = () => {
         
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-      
         <Route path="/adm" element={<ADM />} />
         <Route path="/mp" element={<Mp />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/team" element={<Team />} />
 
       </Routes>
     </BrowserRouter>
