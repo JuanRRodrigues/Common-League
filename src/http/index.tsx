@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse, AxiosError, InternalAxiosRequ
 
 // Criação de instância do axios
 const http = axios.create({
-    baseURL: 'http://localhost:5173/',
+    baseURL: 'http://localhost:8080/',
     headers: {
         Accept: 'application/json',
     },
