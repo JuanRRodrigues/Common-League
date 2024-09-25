@@ -18,13 +18,19 @@ interface FormValues {
   confirmPassword: string;
 }
 
+interface FormValuesLogin {
+  login: string;
+  password: string;
+
+}
+
 const Backgroundgradient = styled.div`
   background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
   width: 100%;
   min-height: 100vh;
 `;
 
-const validationSchema = Yup.object().shape({
+const validationSchemaRegister = Yup.object().shape({
   login: Yup.string().email('Email inválido').required('Email é obrigatório'),
   fullName: Yup.string().required('Nome completo é obrigatório'),
   username: Yup.string().required('Username é obrigatório'),
@@ -90,7 +96,7 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const handleFormSubmit = (values: FormValues, actions: FormikHelpers<FormValues>) => {
+  const handleFormSubmitLogin = (values: FormValuesLogin, actions: FormikHelpers<FormValuesLogin>) => {
     http.post('auth/login', values, {})
       .then(response => {
         sessionStorage.removeItem('token');
@@ -102,6 +108,20 @@ const App: React.FC = () => {
       })
       .catch(error => {
         console.error('Error', error);
+        navigate('/');
+      });
+  };
+
+  const handleFormSubmitRegister = (values: FormValues, actions: FormikHelpers<FormValues>) => {
+    http.post('auth/register', values, {})
+      .then(response => {
+        console.log(response.data);
+        actions.resetForm();
+        navigate('/');
+      })
+      .catch(error => {
+        console.error('Error', error);
+        navigate('/');
       });
   };
 
@@ -117,9 +137,9 @@ const App: React.FC = () => {
           username: '',
           password: '',
           confirmPassword: '',
-        }}
-        validationSchema={validationSchema}
-        onSubmit={handleFormSubmit}
+        } as FormValues}
+        validationSchema={validationSchemaRegister}
+        onSubmit={handleFormSubmitRegister}
       >
         {({ errors, touched, handleChange, handleBlur, handleSubmit, values }) => (
           <Components.SignUpContainer $signinIn={signIn}>
@@ -179,13 +199,11 @@ const App: React.FC = () => {
       <Formik
         initialValues={{
           login: '',
-          fullName: '',
-          username: '',
-          password: '',
-          confirmPassword: '',
-        }}
-        validationSchema={validationSchema}
-        onSubmit={handleFormSubmit}
+          password: ''
+         
+        } as FormValuesLogin}
+    //    validationSchema={validationSchema}
+        onSubmit={handleFormSubmitLogin}
       >
         {({ errors, touched, handleChange, handleBlur, handleSubmit, values }) => (
           <Components.SignInContainer $signinIn={signIn}>
