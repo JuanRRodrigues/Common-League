@@ -4,13 +4,15 @@ interface NavListItemProps {
     item: {
         icon: string;
         name: string;
+        target: string;
     };
+    onClick: () => void; 
 }
 
-const NavListItem: React.FC<NavListItemProps> = ({ item }) => {
+const NavListItem: React.FC<NavListItemProps> = ({ item, onClick }) => {
     return (
-        <li>
-            <a href="#">
+        <li onClick={onClick}>
+            <a href="#" onClick={(e) => e.preventDefault()}> {}
                 <i className={`bi ${item.icon}`}></i>
                 <span className="navName">{item.name}</span>
             </a>

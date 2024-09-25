@@ -2,24 +2,30 @@ import React, { useState } from 'react';
 import NavListData from '../../data/navListData';
 import NavListItem from '../NavListItem/NavListItem';
 import './SideMenu.css';
+import { useNavigate } from 'react-router-dom';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import ShareIcon from '@mui/icons-material/Share';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { useTranslation } from 'react-i18next';
-// Use o tipo `number` em vez de `Number`
+
 interface NavItem {
-  id: number; // Corrigido para `number`
+  id: number;
   name: string;
   icon: string;
+  url: string;
+  target: string; 
 }
 
-// Definir o tipo para as propriedades do SideMenu
 interface SideMenuProps {
   active: boolean;
 }
 
+interface NavListItemProps {
+  item: NavItem;
+  onClick: () => void; 
+}
 
 const SideMenu: React.FC<SideMenuProps> = ({ active }) => {
   const [navData, setNavData] = useState<NavItem[]>(NavListData);
@@ -27,6 +33,12 @@ const SideMenu: React.FC<SideMenuProps> = ({ active }) => {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
+  const navigate = useNavigate();
+
+  const handleNavigation = (url: string) => {
+    navigate(`/${url}`);
+};
+
   return (
     <div className={`SideMenu ${active ? 'active' : ''}`}>
       <a href="#" className='logo'>
@@ -35,7 +47,11 @@ const SideMenu: React.FC<SideMenuProps> = ({ active }) => {
       </a>
       <ul className='nav'>
         {navData.map((item) => (
-          <NavListItem key={item.id} item={item} />
+          <NavListItem 
+          key={item.id} 
+          item={item} 
+          onClick={() => handleNavigation(item.url)}
+          />
         ))}
       </ul>
 
