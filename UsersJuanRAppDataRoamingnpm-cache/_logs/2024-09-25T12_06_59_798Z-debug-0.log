@@ -1,0 +1,22 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\JuanR\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.7.0
+2 info using node@v21.5.0
+3 silly config:load:file:C:\Users\JuanR\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config:load:file:c:\Users\JuanR\Downloads\git\Commom-League\.npmrc
+5 silly config:load:file:C:\Users\JuanR\.npmrc
+6 silly config:load:file:C:\Users\JuanR\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm view @emotion/react description dist-tags.latest homepage version time
+8 verbose argv "view" "--json" "--" "@emotion/react" "description" "dist-tags.latest" "homepage" "version" "time"
+9 verbose logfile logs-max:10 dir:C:\Users\JuanR\Downloads\git\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-09-25T12_06_59_798Z-
+10 verbose logfile C:\Users\JuanR\Downloads\git\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-09-25T12_06_59_798Z-debug-0.log
+11 silly logfile start cleaning logs, removing 3 files
+12 silly logfile error removing log file C:\Users\JuanR\Downloads\git\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-09-25T11_48_29_339Z-debug-0.log [Error: EPERM: operation not permitted, lstat 'C:\Users\JuanR\Downloads\git\Commom-League\UsersJuanRAppDataRoamingnpm-cache\_logs\2024-09-25T11_48_29_339Z-debug-0.log'] {
+12 silly logfile   errno: -4048,
+12 silly logfile   code: 'EPERM',
+12 silly logfile   syscall: 'lstat',
+12 silly logfile   path: 'C:\\Users\\JuanR\\Downloads\\git\\Commom-League\\UsersJuanRAppDataRoamingnpm-cache\\_logs\\2024-09-25T11_48_29_339Z-debug-0.log'
+12 silly logfile }
+13 silly logfile done cleaning log files
+14 http fetch GET 200 https://registry.npmjs.org/@emotion%2freact 204ms (cache revalidated)
+15 verbose exit 0
+16 info ok

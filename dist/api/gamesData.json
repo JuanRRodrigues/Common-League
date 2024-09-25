@@ -1,3 +1,5 @@
+
+
 [
     {
       "id": 1,
@@ -6,7 +8,7 @@
       "category": "moba",
       "teams": 10,
       "campeonatos": 66,
-      "img": "https://i.pinimg.com/736x/6a/29/1f/6a291f859876e421ebe092354007b144.jpg",
+      "img": "./imagens/Games/1.png",
       "active": 1
     },
     {
@@ -16,7 +18,7 @@
       "category": "fps",
       "teams": 10,
       "campeonatos": 20,
-      "img": "https://s2-techtudo.glbimg.com/gMvILaxMJ-7sjNCGR3517VcVh2c=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/N/j/3cZcm6Qf6TxFIAW0nMNg/como-baixar-valorant-de-graca-the-squad.jpg",
+      "img": "./imagens/Games/4.png",
       "active": 1
     },
     {
@@ -26,7 +28,7 @@
       "category": "fps",
       "teams": 10,
       "campeonatos": 10,
-      "img": "https://www.pichauarena.com.br/wp-content/uploads/2018/05/paladins-thumb-1200x675.jpg",
+      "img": "./imagens/Games/5.png",
       "active": 1
     },
     {
@@ -36,7 +38,7 @@
       "category": "fps",
       "teams": 12,
       "campeonatos": 50,
-      "img": "https://static-br.playgroundweb.com/wp-content/uploads/2024/04/playground-overwatch-2-temporada-10-traz-mudancas-necessarias-e-positivas-2024-1.jpg",
+      "img": "./imagens/Games/2.png",
       "active": 1
     },
     {
@@ -46,8 +48,10 @@
       "category": "auto-battler",
       "teams": 8,
       "campeonatos": 15,
-      "img": "https://support-teamfighttactics.riotgames.com/hc/article_attachments/25256793907859",
+      "img": "./imagens/Games/3.png",
       "active": 1
     }
+
+    
   ]
   
