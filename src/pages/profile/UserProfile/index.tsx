@@ -1,13 +1,13 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import EstilosGlobais from '../componentes/GlobaStyle';
-import Perfil from '../componentes/Perfil';
-import UserList from '../componentes/userList';
-import SideMenu from '../componentes/mainSideBar/SideMenu';
+import EstilosGlobais from '../../../componentes/GlobaStyle';
+import Perfil from '../../../componentes/Perfil';
+import UserList from '../../../componentes/userList';
+import SideMenu from '../../../componentes/mainSideBar/SideMenu';
 import { useState } from 'react';
-import Header from '../componentes/MainHeader';
-import * as Components from './newHome/component';
-import './header.css';
+import Header from '../../../componentes/MainHeader';
+import * as Components from '../../Home/component';
+//import './header.css';
 
 
 const Backgroundgradient = styled.main`
@@ -46,7 +46,6 @@ const App: React.FC = () => {
         <Components.Banner className={`banner ${active ? 'active' : ''}`}>
               <Components.UserBanner>
                   <Perfil />
-                  <UserList />
                   <div className="avatar">
           <a href="#" className="icon">
             <img 

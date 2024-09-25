@@ -1,12 +1,13 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Home from './pages/newHome/home';
-import Login from './pages/login';
-import Riot from './pages/riot';
-import Perfil from './pages/perfil';
-import Adm from './pages/adm';
-import Mp from './pages/mercadoPago';
-import Team from './pages/team';
+import Home from './pages/Home';
+import Login from './pages/LoginRegister';
+import Riot from './pages/Master/riot';
+import Perfil from './pages/profile/UserProfile';
+import PerfilEdit from './pages/profile/EditProfile';
+import Adm from './pages/Master/adm';
+import Mp from './pages/Payment/mercadoPago';
+import Team from './pages/team/TeamProfile';
 //import Teams from './pages/team';
 //import Torneios from './pages/tournament';
 //import Teams2 from './pages/teams';
@@ -19,7 +20,7 @@ import Team from './pages/team';
         // <Route path="/teams" element={<Teams />} />
      
    
-import ADM from './pages/Administrative';
+import ADM from './pages/Master';
 
 const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const App: React.FC = () => {
         <Route path="/adm" element={<ADM />} />
         <Route path="/mp" element={<Mp />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/perfilEdit" element={<PerfilEdit />} />
         <Route path="/team" element={<Team />} />
 
       </Routes>

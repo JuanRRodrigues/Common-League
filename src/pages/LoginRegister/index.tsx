@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { styled } from "styled-components";
-import EstilosGlobais from "../componentes/GlobaStyle";
-import * as Components from '../componentes/Login/Components';
-import http from "../http";
+import EstilosGlobais from "../../componentes/GlobaStyle";
+import * as Components from '../../componentes/Login/Components';
+import http from "../../http";
 import { useNavigate } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as Yup from 'yup';
@@ -108,7 +108,6 @@ const App: React.FC = () => {
       })
       .catch(error => {
         console.error('Error', error);
-        navigate('/');
       });
   };
 
@@ -117,11 +116,9 @@ const App: React.FC = () => {
       .then(response => {
         console.log(response.data);
         actions.resetForm();
-        navigate('/');
       })
       .catch(error => {
         console.error('Error', error);
-        navigate('/');
       });
   };
 
