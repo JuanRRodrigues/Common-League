@@ -14,7 +14,7 @@ import Team from './pages/team/TeamProfile';
         
        // <Route path="/torneios" element={<Torneios />} />
        // <Route path="/teamList" element={<Teams2 />} />
-      // <Route path="/riot" element={<Riot />} />
+      
       
      //  <Route path="/payment" element={<Adm />} />
         // <Route path="/teams" element={<Teams />} />
@@ -32,9 +32,9 @@ const App: React.FC = () => {
         <Route path="/adm" element={<ADM />} />
         <Route path="/mp" element={<Mp />} />
         <Route path="/perfil" element={<Perfil />} />
-        <Route path="/perfilEdit" element={<PerfilEdit />} />
+        <Route path="/profileEdit" element={<PerfilEdit />} />
         <Route path="/team" element={<Team />} />
-
+        <Route path="/riot" element={<Riot />} />
       </Routes>
     </BrowserRouter>
   );

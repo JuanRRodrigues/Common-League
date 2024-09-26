@@ -6,8 +6,9 @@ import UserList from '../../../componentes/userList';
 import SideMenu from '../../../componentes/mainSideBar/SideMenu';
 import { useState } from 'react';
 import Header from '../../../componentes/MainHeader';
-import * as Components from '../../profile/component';
+import * as Components from './component';
 import { Field, Formik } from 'formik';
+
 
 const Backgroundgradient = styled.main`
   background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
@@ -46,7 +47,7 @@ const App: React.FC = () => {
               <Components.avatarA href="#"> </Components.avatarA>
               <a href="#" className="icon">
                 <Components.avatarImg
-                  src="https://i.pinimg.com/736x/58/dd/8c/58dd8c8b12c0755e5b71643eeab3d39f.jpg"
+                  src="../../../../public/icones/malenia.png"
                   alt="User Image"
                 />
               </a>
@@ -72,7 +73,7 @@ const App: React.FC = () => {
             >
               {({ handleChange, values }) => (
                 <Components.formEditProfile autoComplete="off">
-                  <label htmlFor="password">Profile Name</label>
+                  <Components.formEditLabel htmlFor="password">Profile Name</Components.formEditLabel>
                   <Components.formEditInput
                     type="text"
                     id="login"
@@ -81,7 +82,7 @@ const App: React.FC = () => {
                     value="Kuskyn"
                   />
 
-                  <label htmlFor="password">Real Name</label>
+                  <Components.formEditLabel htmlFor="password">Real Name</Components.formEditLabel>
                   <Components.formEditInput
                     type="text" // Campo de texto temporário
                     name="password-temp"
@@ -91,9 +92,8 @@ const App: React.FC = () => {
                     value="Juan Ribeiro Rodrigues"
                   />
 
-
-<label htmlFor="password">Location</label>
-<label htmlFor="password">Country</label>
+      <Components.formEditLabel htmlFor="password">Location</Components.formEditLabel>
+      <Components.formEditLabel htmlFor="password">Country</Components.formEditLabel>
                   <Components.formEditInput
                     type="text" // Campo de texto temporário
                     name="password-temp"
@@ -101,9 +101,10 @@ const App: React.FC = () => {
                     placeholder="Digite sua senha"
                     onChange={handleChange}
                     value="Brazil"
+                    autoComplete="off"
                   />
 
-<label htmlFor="password">State</label>
+  <Components.formEditLabel htmlFor="password">State</Components.formEditLabel>
                   <Components.formEditInput
                     type="text" // Campo de texto temporário
                     name="password-temp"
@@ -113,23 +114,20 @@ const App: React.FC = () => {
                     value="São Paulo"
                   />
 
-<label htmlFor="password">City</label>
+                  <Components.formEditLabel htmlFor="password">City</Components.formEditLabel>
                   <Components.formEditInput
-                    type="text" // Campo de texto temporário
+                    type="text" 
                     name="password-temp"
                     id="password-temp"
                     placeholder="Digite sua senha"
                     onChange={handleChange}
                     value="São Paulo"
+                    autoComplete="nope"
                   
                   />
 
-
-                
-                  
-
-                  <button className="button-entrar" type="submit">Save</button>
-                  <button className="button-cadastro" type="button">Cancel</button>
+                  <Components.buttonSave className="button-entrar" type="submit">Save</Components.buttonSave>
+                  <Components.buttonCancel className="button-cadastro" type="button">Cancel</Components.buttonCancel>
                 </Components.formEditProfile>
               )}
             </Formik>

@@ -7,7 +7,7 @@ import SideMenu from '../../../componentes/mainSideBar/SideMenu';
 import { useState } from 'react';
 import Header from '../../../componentes/MainHeader';
 import * as Components from '../../Home/component';
-import './header.css';
+import '../header.css';
 
 
 const Backgroundgradient = styled.main`

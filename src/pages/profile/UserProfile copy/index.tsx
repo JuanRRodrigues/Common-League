@@ -7,7 +7,6 @@ import SideMenu from '../../../componentes/mainSideBar/SideMenu';
 import { useState } from 'react';
 import Header from '../../../componentes/MainHeader';
 import * as Components from '../../Home/component';
-import './header.css';
 
 
 const Backgroundgradient = styled.main`
@@ -26,7 +25,6 @@ const Backgroundgradient = styled.main`
   transition: 0.5s;
 `;
 
-// Define the App component
 const App: React.FC = () => {
 
   const [active, setActive] = useState(false);

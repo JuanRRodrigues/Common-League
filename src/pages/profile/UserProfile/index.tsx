@@ -6,8 +6,8 @@ import UserList from '../../../componentes/userList';
 import SideMenu from '../../../componentes/mainSideBar/SideMenu';
 import { useState } from 'react';
 import Header from '../../../componentes/MainHeader';
-import * as Components from '../../Home/component';
-//import './header.css';
+import * as Components from '../../profile/UserProfile/component';
+
 
 
 const Backgroundgradient = styled.main`
@@ -26,7 +26,6 @@ const Backgroundgradient = styled.main`
   transition: 0.5s;
 `;
 
-// Define the App component
 const App: React.FC = () => {
 
   const [active, setActive] = useState(false);
@@ -37,24 +36,22 @@ const App: React.FC = () => {
 
   return (
     <Components.Main>
-      <Backgroundgradient>
-     
-      
+      <Backgroundgradient> 
       <SideMenu active={active} />
       <Header toggleActive={handleTogleActive} />
 
         <Components.Banner className={`banner ${active ? 'active' : ''}`}>
               <Components.UserBanner>
                   <Perfil />
-                  <div className="avatar">
-          <a href="#" className="icon">
-            <img 
-              src="https://i.pinimg.com/736x/58/dd/8c/58dd8c8b12c0755e5b71643eeab3d39f.jpg" 
-              alt="User Image" 
-            />
-          </a>
-        
-        </div>
+                  <Components.avatar>
+              <Components.avatarA href="#"> </Components.avatarA>
+              <a href="#" className="icon">
+                <Components.avatarImg
+                  src="../../../../public/icones/malenia.png"
+                  alt="User Image"
+                />
+              </a>
+            </Components.avatar>
         <div className="user">
             <span>Juan</span>
           

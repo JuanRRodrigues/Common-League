@@ -127,7 +127,7 @@ const App: React.FC = () => {
     <Backgroundgradient>
       
       <EstilosGlobais />
-      <Formik
+      <Formik 
         initialValues={{
           login: '',
           fullName: '',
@@ -204,7 +204,7 @@ const App: React.FC = () => {
       >
         {({ errors, touched, handleChange, handleBlur, handleSubmit, values }) => (
           <Components.SignInContainer $signinIn={signIn}>
-            <Components.Form onSubmit={handleSubmit}>
+            <Components.Form onSubmit={handleSubmit} autoComplete="off">
               <Components.Title>{t("Sign In")}</Components.Title>
               
               <Components.Input
@@ -214,6 +214,7 @@ const App: React.FC = () => {
                 value={values.login}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                autoComplete="off"
               />
               <ErrorMessageStyled>{errors.login && touched.login && errors.login}</ErrorMessageStyled>
               <Components.Input
@@ -223,6 +224,7 @@ const App: React.FC = () => {
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                autoComplete="nope"
               />
               <ErrorMessageStyled>{errors.password && touched.password && errors.password}</ErrorMessageStyled>
               <Components.Anchor href="#">{t('Forgot Your Password?')}</Components.Anchor>
