@@ -4,6 +4,7 @@ import Titulo from "../../Titulo";
 import fotos from "./fotos-populares.json";
 import { useNavigate } from 'react-router-dom';
 import http from "../../../http";
+import { useTranslation } from 'react-i18next';
 
 interface Foto {
     path: string;
@@ -60,6 +61,11 @@ const Populares: React.FC = () => {
     const [imagemExpandida, setImagemExpandida] = useState<Foto | null>(null);
     const navigate = useNavigate();
 
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (lng: string) => {
+      i18n.changeLanguage(lng)
+    }
+
     const handleZoom = (foto: Foto) => {
         setImagemExpandida(foto);
     };
@@ -74,7 +80,7 @@ const Populares: React.FC = () => {
 
     return (
         <section>
-            <Titulo $alinhamento="center">Destaques</Titulo>
+            <Titulo $alinhamento="center">{t('Highlights')}</Titulo>
             <ColunaFotos>
                 {fotos.map((foto: Foto) => (
                     <div key={foto.id}>
@@ -86,7 +92,7 @@ const Populares: React.FC = () => {
                         {imagemExpandida === foto && (
                             <div>
                                 <BotoesContainer>
-                                    <Botao onClick={() => handleEntrarNoTime(foto)}>Entrar no time</Botao>
+                                    <Botao onClick={() => handleEntrarNoTime(foto)}>{t('Join the Team')}</Botao>
                                     <BotaoFechar onClick={() => setImagemExpandida(null)}>Fechar</BotaoFechar>
                                 </BotoesContainer>
                             </div>

@@ -1,6 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import { languageDetector, languageDetectorOptions } from "./lang-detector"
+import { languageDetector, languageDetectorOptions } from "./lang-detector";
 
 const resources = {
     en: {
@@ -16,7 +16,11 @@ const resources = {
             "Welcome, Friend!": "Welcome, Friend!",
             "Enter your personal details and start your journey with us": "Enter your personal details and start your journey with us",
             "Welcome Back!": "Welcome Back!",
-            "Email": "Email"
+            "Email": "Email",
+            "Ongoing Championships": "Ongoing Championships",
+            "Join the Team": "Join the Team",
+            "Highlights": "Highlights",
+            "Search by Rank": "Search by Rank"
         }
     },
     pt: {
@@ -32,7 +36,11 @@ const resources = {
             "Welcome, Friend!": "Bem-vindo, Amigo!",
             "Enter your personal details and start your journey with us": "Insira seus dados pessoais e comece sua jornada conosco",
             "Welcome Back!": "Bem-vindo de volta!",
-            "Email": "Email"
+            "Email": "Email",
+            "Ongoing Championships": "Campeonatos em Andamento",
+            "Join the Team": "Entrar no time",
+            "Highlights": "Destaques",
+            "Search by Rank": "Busque por Rank"
         }
     },
     jpn: {
@@ -48,7 +56,11 @@ const resources = {
             "Welcome, Friend!": "ようこそ、友達！",
             "Enter your personal details and start your journey with us": "個人情報を入力して、私たちと一緒に旅を始めましょう",
             "Welcome Back!": "お帰りなさい！",
-            "Email": "メールアドレス"
+            "Email": "メールアドレス",
+            "Ongoing Championships": "進行中のチャンピオンシップ",
+            "Join the Team": "チームに参加",
+            "Highlights": "ハイライト",
+            "Search by Rank": "ランクで検索"
         }
     },
     es: {
@@ -64,7 +76,11 @@ const resources = {
             "Welcome, Friend!": "¡Bienvenido, amigo!",
             "Enter your personal details and start your journey with us": "Introduce tus datos personales y comienza tu viaje con nosotros",
             "Welcome Back!": "¡Bienvenido de nuevo!",
-            "Email": "Correo electrónico"
+            "Email": "Correo electrónico",
+            "Ongoing Championships": "Campeonatos en curso",
+            "Join the Team": "Unirse al equipo",
+            "Highlights": "Destacados",
+            "Search by Rank": "Buscar por Rango"
         }
     },
     fr: {
@@ -80,7 +96,11 @@ const resources = {
             "Welcome, Friend!": "Bienvenue, ami !",
             "Enter your personal details and start your journey with us": "Entrez vos informations personnelles et commencez votre voyage avec nous",
             "Welcome Back!": "Content de vous revoir !",
-            "Email": "E-mail"
+            "Email": "E-mail",
+            "Ongoing Championships": "Championnats en cours",
+            "Join the Team": "Rejoindre l'équipe",
+            "Highlights": "Points forts",
+            "Search by Rank": "Rechercher par Rang"
         }
     },
     de: {
@@ -96,7 +116,11 @@ const resources = {
             "Welcome, Friend!": "Willkommen, Freund!",
             "Enter your personal details and start your journey with us": "Geben Sie Ihre persönlichen Daten ein und beginnen Sie Ihre Reise mit uns",
             "Welcome Back!": "Willkommen zurück!",
-            "Email": "E-Mail"
+            "Email": "E-Mail",
+            "Ongoing Championships": "Laufende Meisterschaften",
+            "Join the Team": "Dem Team beitreten",
+            "Highlights": "Highlights",
+            "Search by Rank": "Suche nach Rang"
         }
     },
     ru: {
@@ -112,7 +136,11 @@ const resources = {
             "Welcome, Friend!": "Добро пожаловать, друг!",
             "Enter your personal details and start your journey with us": "Введите свои персональные данные и начните ваше путешествие с нами",
             "Welcome Back!": "С возвращением!",
-            "Email": "Электронная почта"
+            "Email": "Электронная почта",
+            "Ongoing Championships": "Текущие чемпионаты",
+            "Join the Team": "Присоединиться к команде",
+            "Highlights": "Основные моменты",
+            "Search by Rank": "Поиск по Рангу"
         }
     },
     ko: {
@@ -128,7 +156,11 @@ const resources = {
             "Welcome, Friend!": "환영합니다, 친구!",
             "Enter your personal details and start your journey with us": "개인 정보를 입력하고 우리와 함께 여행을 시작하세요",
             "Welcome Back!": "다시 오신 것을 환영합니다!",
-            "Email": "이메일"
+            "Email": "이메일",
+            "Ongoing Championships": "진행 중인 챔피언십",
+            "Join the Team": "팀에 가입",
+            "Highlights": "하이라이트",
+            "Search by Rank": "랭크로 검색"
         }
     },
     zh: {
@@ -144,27 +176,23 @@ const resources = {
             "Welcome, Friend!": "欢迎，朋友！",
             "Enter your personal details and start your journey with us": "输入您的个人信息，开始与我们的旅程",
             "Welcome Back!": "欢迎回来！",
-            "Email": "电子邮件"
+            "Email": "电子邮件",
+            "Ongoing Championships": "正在进行的锦标赛",
+            "Join the Team": "加入团队",
+            "Highlights": "亮点",
+            "Search by Rank": "按排名搜索"
         }
     }
 };
 
-
-
-
-
-
 i18n.use(languageDetector)
-    .use(initReactI18next) // pass the i18n instance to react-i18next.
+    .use(initReactI18next)
     .init({
         detection: languageDetectorOptions,
         resources,
-        // supportedLngs: ["pt", "en"],
-        // lng: "pt", // fallback language is portuguese
         fallbackLng: ["en", "pt"],
-
         interpolation: {
-            escapeValue: false, // no need for react. it escapes by default
+            escapeValue: false,
         },
     });
 

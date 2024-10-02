@@ -37,9 +37,10 @@ const App: React.FC = () => {
     <Components.Main>
       <Backgroundgradient>
         <SideMenu active={active} />
-        <Header toggleActive={handleToggleActive} />
+        
 
         <Components.Banner className={`banner ${active ? 'active' : ''}`}>
+          <Header toggleActive={handleToggleActive} />
           <Components.UserBanner>
             <Components.avatarSpan>Kuskyn</Components.avatarSpan>
             <Components.avatarEditProfileSpan>EditProfile</Components.avatarEditProfileSpan>
@@ -135,7 +136,6 @@ const App: React.FC = () => {
         </Components.Banner>
 
         <EstilosGlobais />
-        <Header toggleActive={handleToggleActive} />
       </Backgroundgradient>
     </Components.Main>
   );

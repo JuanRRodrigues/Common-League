@@ -5,6 +5,7 @@ import Populares from './Populares';
 import Tags from './Tags';
 import Imagem from './Imagens'; // Ensure this component accepts the correct props
 import { Foto } from '../../data/types';
+import { useTranslation } from 'react-i18next';
 // Styled components
 const GaleryContainer = styled.div`
     display: flex;
@@ -31,12 +32,16 @@ interface GaleriaPlayersProps {
 
 // Functional component
 const GaleriaPlayers: React.FC<GaleriaPlayersProps> = ({ fotos = [], aoFotoSelecionada, aoAlternarFavorito }) => {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (lng: string) => {
+      i18n.changeLanguage(lng)
+    }
     return (
         <>
             <Tags />
             <GaleryContainer>
                 <SecaoFluida>
-                    <Titulo>Campeonatos em Andamento</Titulo>
+                    <Titulo>{t('Ongoing Championships')}</Titulo>
                     <ImagensContainer>
                         {fotos.map(foto => (
                             <Imagem 

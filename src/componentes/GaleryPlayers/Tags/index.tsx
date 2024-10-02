@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tags from './tags.json';
+import { useTranslation } from 'react-i18next';
 
 const TagsContainer = styled.section`
     display: flex;
@@ -43,15 +44,31 @@ interface TagData {
 }
 
 const Tags: React.FC = () => {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (lng: string) => {
+      i18n.changeLanguage(lng)
+    }
     return (
         <TagsContainer>
-            <TagTitulo>Busque por Tags:</TagTitulo>
+            <TagTitulo>{t('Search by Rank')}</TagTitulo>
             <Div>
                 {tags.map((tag: TagData) => (
                     <Tag key={tag.id}>{tag.titulo}</Tag>
                 ))}
             </Div>
+            <div>
+                <button onClick={() => changeLanguage('pt')}>PT-BR</button>
+                <button onClick={() => changeLanguage('en')}>ENG</button>
+                <button onClick={() => changeLanguage('jpn')}>JPN</button>
+                <button onClick={() => changeLanguage('zh')}>ZH</button>
+                <button onClick={() => changeLanguage('ko')}>KO</button>
+                <button onClick={() => changeLanguage('ru')}>RU</button>
+                <button onClick={() => changeLanguage('de')}>DE</button>
+                <button onClick={() => changeLanguage('fr')}>FR</button>
+        </div>
         </TagsContainer>
+
+        
     );
 }
 

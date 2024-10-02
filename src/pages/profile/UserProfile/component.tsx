@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const avatar = styled.div`
+position: relative;
     width: 150px;
     height: 50px;
     padding: 6% 13%;
@@ -33,6 +34,7 @@ export const optionLi = styled.li`
 `;
 
 export const avatarImg = styled.img`
+  position: relative;
     width: 200%;
     height: 200%;
     border-radius: 10%;
@@ -40,8 +42,45 @@ export const avatarImg = styled.img`
 `;
 
 export const avatarA = styled.a`
+position: absolute;
     color: #ffffff;
     font-size: 1.8rem;
+    
+    
+`;
+
+export const span = styled.span`
+    position: relative;
+    color: #a5a5a5;
+    font-size: 1rem;
+    left: 24.6%;
+    bottom: 60%;
+
+`;
+
+export const userName = styled.span`
+    position: relative;
+    color: #ffffff;
+    font-size: 3rem;
+    left: 34%;
+    bottom: 70%;
+
+`;
+export const span1 = styled.span`
+    bottom: 75%;
+    position: relative;
+    padding-left: 34%; 
+    color: #ffffff;
+    font-size: 1rem;
+
+`;
+export const span2 = styled.span`
+    top: 10%;
+    position: absolute;
+    padding-left: 34%; 
+    color: #ffffff;
+    font-size: 1rem;
+
 `;
 
 export const avatarSpan = styled.span`
@@ -55,14 +94,16 @@ export const avatarSpan = styled.span`
 
 export const avatarEditProfileSpan = styled.span`
     top: 40%;
-    position: absolute;
+    position: relative;
     padding-left: 12.2%; 
     color: white;
     font-size: 1rem;
 `;
 
 export const avatarUser = styled.section`
+position: absolute;
     display: flex;
+    bottom: 500px;
     flex-direction: column;
 `;
 
@@ -124,14 +165,38 @@ export const UserBanner = styled.section`
   position: relative;
   width: 95%;
   left: 40px;
-  top: 15%;
-  height: 15%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: none;
+  padding: top;
+  height: 40%;
+  border: 1px solid white;
+
+
+  transition: 1s;
+  flex: 1;
+  max-height: 100vh; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+
+  .active {
+    position: relative;
+    width: 93%;
+    transition: 1s;
+  }
+`;
+
+export const sideBanner = styled.section`
+  position: relative;
+  width: 35%;
+  left: 1150px;
+  bottom: 283%;
+  background-color: white;
+  border: 1px solid white;
   background: none;
+  color: white;
 
   transition: 1s;
   flex: 1;
-  max-height: 100vh; 
+  max-height: 400vh; 
   scrollbar-width: none; 
   -ms-overflow-style: none; 
 
@@ -141,48 +206,29 @@ export const UserBanner = styled.section`
     transition: 1s;
   }
 `;
-
-export const UserOptionsEditBanner = styled.section`
+export const historicBanner = styled.section`
   position: relative;
-  width: 20%;
-  left: 0px;
-  top: 0%;
-  height: 300%;
-  background-color: none;
-
+  width: 50%;
+  //bottom: 800px;
+  left: 2.5%;
+  height: 50%;
+  display: flex;
+  background: none;
+  color: white;
   transition: 1s;
-  flex: 1;
-  max-height: 100vh; 
-  scrollbar-width: none; 
+  flex-direction: column; /* Alinhamento em coluna */
+ 
+  max-height: 100vh;
+  scrollbar-width: none;
   -ms-overflow-style: none; 
 
-  .active {
-    position: relative;
+  &.active {
     width: 93%;
     transition: 1s;
   }
 `;
 
-export const UserFormEditBanner = styled.section`
-  position: relative;
-  width: 72%;
-  left: 400px;
-  top: 25%;
-  height: 75%;
-  background-color: none;
 
-  transition: 1s;
-  flex: 1;
-  max-height: 100vh; 
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
-
-  .active {
-    position: relative;
-    width: 93%;
-    transition: 1s;
-  }
-`;
 
 export const Main = styled.main`
   top: 0;
@@ -198,72 +244,283 @@ export const Main = styled.main`
   background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
 `;
 
-export const formEditProfile = styled.form`
+export const verificado = styled.button`
+position: relative;
+bottom: 60%;
+
+   background-color: #05ad29;
+   color: white;
+   font-size: 1rem;
+   border: none;
+`;
+
+export const editProfile = styled.button`
+position: relative;
+bottom: 60%;
+
+   background-color: #05ad29;
+   color: white;
+   font-size: 1rem;
+   border: none;
+`;
+
+export const teamOne = styled.div`
+position: absolute;
   display: flex;
   flex-direction: column; 
-  gap: 10px; 
-  max-width: 700px; 
-  padding: 20px; 
-  border-radius: 8px; 
-  background-color: none;
+  gap: 10px;
+
+  align-items: center;
+ 
+
+`;
+
+export const player = styled.div`
+  position: relative;
+
+
+  display: flex;
+  width: 500px;
+
+  align-items: center;
+
+  background-color: rgba(39, 41, 165, 0.2); /* Cor de fundo do input */
+
+  color: #cccccc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+`;
+export const player2 = styled.div`
+  position: relative;
+  background-color: rgba(148, 34, 34, 0.2); /* Cor de fundo do input */
+  color: #dfdfdf;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  width: 500px;
+  align-items: center;
+`;
+
+
+export const imgplayer = styled.img`
+position: relative;
+ height: 50px;
+ width: 50px;
+`;
+export const imgSpellOneTeamOne = styled.img`
+ height: 25px;
+ width: 25px;
+`;
+export const spellsDiv = styled.div`
+top: 50px;
+  display: flex;
+  flex-direction: column; 
+`;
+
+export const spellsDivTwo = styled.div`
+position: relative;
+  display: flex;
+  flex-direction: column; 
+  left: 425px;
+`;
+
+export const imgSpellTwoTeamTwo = styled.img`
+position: relative;
+ height: 25px;
+ width: 25px;
+`;
+
+
+export const imgText = styled.a`
+    font-size: 20px;
+`;
+
+export const kdaText1 = styled.a`
+    position: absolute;
+    font-size: 20px;
+    left: 40%;
+`;
+export const kdaText2 = styled.a`
+    position: absolute;
+    font-size: 20px;
+    left: 65%;
+`;
+
+export const imgTextOne = styled.a`
+    position: relative;
+    font-size: 20px;
+    
+`;
+
+export const danoText = styled.a`
+    position: relative;
+    font-size: 20px;
+    left: 35%;
+    
+`;
+
+export const csText = styled.a`
+    position: relative;
+    font-size: 20px;
+    left: 40%;
+    
+`;
+export const teamTwo = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+  padding-left: 580px;
+  align-items: center;
+`;
+
+export const imgplayerTwo = styled.img`
+position: relative;
+ height: 50px;
+ width: 50px;
+ left: 425px;
  
 `;
 
-export const buttonSave = styled.button`
-  width: 40%;
-  padding: 10px; 
-  border: none; 
-  left: 60%;
-  position: relative;
-  border-radius: 4px; 
-  background-color: #ce0404; 
-  color: white; 
-  cursor: pointer; 
-  font-size: 16px; 
-  transition: background-color 0.3s;
-  
-  &:hover {
-    background-color: #910505;
-  
-
-}
-`
-
-export const buttonCancel = styled.button`
-  width: 40%;
-  padding: 10px; 
-  border: none; 
-  left: 60%;
-  position: relative;
-  border-radius: 4px; 
-  background-color: #919191; 
-  color: white; 
-  cursor: pointer; 
-  font-size: 16px; 
-  transition: background-color 0.3s;
-  
-  &:hover {
-    background-color: #6d6d6d;
-  
-
-}
-`
-
-export const formEditInput = styled.input`
-  background-color: rgba(19, 19, 19, 0.2); /* Cor de fundo do input */
-  padding: 10px;
-  color: #777575;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  font-size: 16px;
-  width: 100%;
-  box-sizing: border-box; /* Para incluir padding e borda no cálculo da largura */
+export const textElo = styled.div`
+    position: relative;
+    font-size: 16px;
+    color: #bdbdbd;
+    
+    
+    
 `;
 
-  export const formEditLabel = styled.label`
-  color: #b9b9b9;
+export const textRank = styled.a`
+    position: relative;
+    font-size: 16px;
+    left: 20px;
+    color: #ffbb00;
+   
+    
+`;
+export const tagElo = styled.div`
+    position: relative;
+    font-size: 16px;
+ 
+    color: #ffbb00;
+`;
+export const textRankA = styled.a`
+    position: relative;
+    font-size: 16px;
+    
+  
+    padding-left: 38px;
+    background-color: none;
+   
+    
 `;
 
-export const verificado = styled.label`
-color: #b9b9b9;
+export const tagEloinfo = styled.div`
+    position: relative;
+    font-size: 16px;
+    left: 10px;
+    list-style-type: none;
+    padding: 5px;
+    gap: 20px;
+    width: 100%;
+    color: #aaaaaa;
+    display: flex;
+`;
+
+export const tagEloinfoGold = styled.li`
+    position: relative;
+    font-size: 16px;
+    list-style-type: none;
+
+    gap: 20px;
+    width: 100%;
+    color: #ffc400;
+    display: flex;
+`;
+
+export const tagEloinfoDiamond = styled.li`
+    position: relative;
+    font-size: 16px;
+    list-style-type: none;
+
+    gap: 20px;
+    width: 100%;
+    color: #2f90df;
+    display: flex;
+`;
+
+export const tagEloinfoGrandMaster = styled.li`
+    position: relative;
+    font-size: 16px;
+    list-style-type: none;
+
+    gap: 20px;
+    width: 100%;
+    color: #e7382c;
+    display: flex;
+`;
+export const teams1Img = styled.img`
+  position: relative;
+    width: 80%;
+    height: 80%;
+    left: 18px;
+    border-radius: 10%;
+
+`;
+
+export const teams2Img = styled.img`
+  position: relative;
+    width: 60%;
+    height: 60%;
+    left: 25px;
+    border-radius: 10%;
+
+`;
+
+export const sideBarImg = styled.img`
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    padding-top: 30px;
+    border-radius: 100%;
+
+`;
+
+export const sideBarTemaName = styled.h3`
+position: relative;
+bottom: 30px;
+ font-size: 1rem;
+`;
+
+export const sideBarTemaName2 = styled.h3`
+position: relative;
+padding: 10px;
+right: 30%;
+color: orange;
+ font-size: 1rem;
+`;
+
+export const sideBarImgRiot = styled.img`
+  position: relative;
+    width: 40%;
+    height: 40%;
+    border-radius: 100%;
+
+`;
+
+export const sideBarUserRiot = styled.div`
+  position: relative;
+ padding-top: 10px;
+  display: flex;
+  align-items: center; /* Alinha o ícone e o texto verticalmente ao centro */
+  right: 25px;
+  border-radius: 10%;
+ 
+
+`;
+
+export const sideBarUserRiotText = styled.h3`
+position: absolute;
+left: 40%;
+ font-size: 1rem;
 `;

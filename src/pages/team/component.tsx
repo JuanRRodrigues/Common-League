@@ -147,3 +147,24 @@ export const text = styled.div`
     line-height: 1.5; /* Controla o espaçamento vertical entre linhas */
   }
 `;
+
+
+export const avatarTeamDiv = styled.div`
+ 
+`;
+
+export const avatarTeamImg = styled.img`
+position: relative;
+left: 1%;
+top: 5px;
+ height: 15%;
+ width: 15%;
+`;
+
+export const avatarTeamDivText = styled.div`
+ position: relative;
+ left: 18%;
+ bottom: 50%;
+ height: 15%;
+ width: 15%;
+`;

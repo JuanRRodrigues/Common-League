@@ -8,6 +8,7 @@ import PerfilEdit from './pages/profile/EditProfile';
 import Adm from './pages/Master/adm';
 import Mp from './pages/Payment/mercadoPago';
 import Team from './pages/team/TeamProfile';
+
 //import Teams from './pages/team';
 //import Torneios from './pages/tournament';
 //import Teams2 from './pages/teams';
@@ -31,10 +32,13 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/adm" element={<ADM />} />
         <Route path="/mp" element={<Mp />} />
-        <Route path="/perfil" element={<Perfil />} />
-        <Route path="/profileEdit" element={<PerfilEdit />} />
+        <Route path="profiles"> 
+            <Route index element={<Perfil />} />
+            <Route path="edit" element={<PerfilEdit />} />
+        </Route>
         <Route path="/team" element={<Team />} />
         <Route path="/riot" element={<Riot />} />
+        <Route path='*' element={<div><img src="./public/icones/molho.png" alt="" /></div>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -7,7 +7,7 @@ import SideMenu from '../../../componentes/mainSideBar/SideMenu';
 import { useState } from 'react';
 import Header from '../../../componentes/MainHeader';
 import * as Components from '../component';
-//import './header.css';
+
 
 
 const Backgroundgradient = styled.main`
@@ -41,33 +41,37 @@ const App: React.FC = () => {
      
       
       <SideMenu active={active} />
-      <Header toggleActive={handleTogleActive} />
+  
 
         <Components.Banner className={`banner ${active ? 'active' : ''}`}>
+        <Header toggleActive={handleTogleActive} />
               <Components.UserBanner>
 
-                  <Perfil />
-                  <UserList />
-                  <div className="avatar">
+          
+             
+                  <Components.avatarTeamDiv>
           <a href="#" className="icon">
-            <img 
+            <Components.avatarTeamImg
               src="https://nexus.leagueoflegends.com/wp-content/uploads/2019/10/G2_Icon_iqex9cgmveqc73m46pbm.png" 
               alt="Team Image" 
             />
           </a>
         
-        </div>
-        <div className="user">
+        </Components.avatarTeamDiv>
+        <Components.avatarTeamDivText>
             <span>Team Solid</span>
-          
-          </div>
-          <div className="user2">
             <span>jogadores: 5</span>
+            <span>Pais: Brasil</span>
+            <span>Capitão:</span>
+          
+          </Components.avatarTeamDivText>
+          <div className="user2">
+            
           
           </div>
 
           <div className="level">
-            <span>Pais: Brasil</span>
+            
           </div>
 
           <div className="edit">
@@ -75,7 +79,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="verificado">
-            <button>Verificado:</button>
+          
           </div>
           
                 <Components.teamInfoBanner>
@@ -97,8 +101,7 @@ const App: React.FC = () => {
         </Components.Banner>
       
       <EstilosGlobais />
-      
-      <Header toggleActive={handleTogleActive} />
+    
       
     </Backgroundgradient>
     </Components.Main>

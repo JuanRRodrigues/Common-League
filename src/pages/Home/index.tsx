@@ -53,7 +53,7 @@ const App: React.FC = () => {
 
   // Descomente se necessário
    if (!token) {
-     return <Navigate to="/login" />;
+    // return <Navigate to="/login" />;
    }
 
   return (

@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 export const avatar = styled.div`
+    position: relative;
     width: 150px;
     height: 50px;
-    padding: 6% 13%;
+    left: 12%;
+    top: 75%;
     display: flex;
     align-items: center;
     gap: 1px;
-    border-radius: 10px;
+   
 `;
 
 export const optionDiv = styled.div`
@@ -36,9 +38,16 @@ export const avatarImg = styled.img`
     position: relative;
     width: 80%;
     height: 80%;
+    display: flex;
     border-radius: 10%;
-    bottom: 44px;
+    bottom: 75px;
     right: 150px;
+    
+
+    .active {
+     
+    
+  }
 `;
 
 export const avatarA = styled.a`
@@ -56,21 +65,14 @@ export const avatarSpan = styled.span`
 
 export const avatarEditProfileSpan = styled.span`
     top: 40%;
-    position: absolute;
+    position: relative;
     padding-left: 12.2%; 
     color: white;
     font-size: 1rem;
 `;
 
-export const avatarUser = styled.section`
-    display: flex;
-    flex-direction: column;
-`;
 
-export const user = styled.section`
-     display: flex;
-     flex-direction: column;
-`;
+
 
 export const Section = styled.section`
   overflow: hidden;
@@ -126,6 +128,7 @@ export const UserBanner = styled.section`
   width: 95%;
   left: 40px;
   top: 15%;
+  background-color: white;
   height: 15%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: none;
@@ -147,7 +150,7 @@ export const UserOptionsEditBanner = styled.section`
   position: relative;
   width: 20%;
   left: 0px;
-  top: 0%;
+  top: 100%;
   height: 300%;
   background-color: none;
 
@@ -200,6 +203,7 @@ export const Main = styled.main`
 `;
 
 export const formEditProfile = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column; 
   gap: 10px; 
