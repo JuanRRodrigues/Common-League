@@ -9,6 +9,8 @@ import Header from '../../../componentes/MainHeader';
 import * as Components from '../../profile/UserProfile/component';
 import DamageBar from './DamageBar';
 import TankBar from './tankBar';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Backgroundgradient = styled.main`
@@ -31,11 +33,15 @@ const Backgroundgradient = styled.main`
 const App: React.FC = () => {
 
   const [active, setActive] = useState(false);
+  const navigate = useNavigate();
 
   const handleTogleActive = () => {
     setActive(!active);
   };
 
+  const handleEditProfileClick = () => {
+    navigate('/profiles/edit'); // A página para a qual deseja redirecionar
+  };
   return (
     
     <Components.Main>
@@ -73,7 +79,7 @@ const App: React.FC = () => {
             Level: 30
             </Components.span1>
 
-          <Components.editProfile>
+          <Components.editProfile onClick={handleEditProfileClick}>
             Edit Profile
           </Components.editProfile>
 
@@ -89,6 +95,15 @@ const App: React.FC = () => {
                  
             <Components.teamTwo>
             <div>
+            <Components.avatar>
+              <Components.avatarA href="#"> </Components.avatarA>
+              <a href="#" className="icon">
+                <Components.teams2Img
+                    src="../../../../public/icones/paiN.png"
+                  alt="User Image"
+                />
+              </a>
+            </Components.avatar>
                  <h3>PaiN Gaming - Derrota</h3>
            </div>
              <Components.player2>
@@ -160,6 +175,15 @@ const App: React.FC = () => {
             </Components.teamTwo>
             <Components.teamOne>
             <div>
+            <Components.avatar>
+              <Components.avatarA href="#"> </Components.avatarA>
+              <a href="#" className="icon">
+                <Components.teams2Img
+                    src="../../../../public/icones/paiN.png"
+                  alt="User Image"
+                />
+              </a>
+            </Components.avatar>
                  <h3>Loud - Vitória</h3>
            </div>
              <Components.player>
@@ -240,6 +264,15 @@ const App: React.FC = () => {
             
        <Components.teamTwo>
        <div>
+       <Components.avatar>
+              <Components.avatarA href="#"> </Components.avatarA>
+              <a href="#" className="icon">
+                <Components.teams2Img
+                    src="../../../../public/icones/paiN.png"
+                  alt="User Image"
+                />
+              </a>
+            </Components.avatar>
             <h3>PaiN Gaming - Derrota</h3>
       </div>
         <Components.player2>
@@ -311,6 +344,15 @@ const App: React.FC = () => {
        </Components.teamTwo>
        <Components.teamOne>
        <div>
+       <Components.avatar>
+              <Components.avatarA href="#"> </Components.avatarA>
+              <a href="#" className="icon">
+                <Components.teams2Img
+                    src="../../../../public/icones/paiN.png"
+                  alt="User Image"
+                />
+              </a>
+            </Components.avatar>
             <h3>Loud - Vitoria</h3>
       </div>
         <Components.player>
@@ -388,7 +430,17 @@ const App: React.FC = () => {
             
        <Components.teamTwo>
        <div>
+       <Components.avatar>
+              <Components.avatarA href="#"> </Components.avatarA>
+              <a href="#" className="icon">
+                <Components.teams2Img
+                    src="../../../../public/icones/paiN.png"
+                  alt="User Image"
+                />
+              </a>
+            </Components.avatar>
             <h3>PaiN Gaming - Derrota</h3>
+            
       </div>
         <Components.player2>
    
@@ -458,7 +510,17 @@ const App: React.FC = () => {
         
        </Components.teamTwo>
        <Components.teamOne>
+   
        <div>
+       <Components.avatar>
+              <Components.avatarA href="#"> </Components.avatarA>
+              <a href="#" className="icon">
+                <Components.teams2Img
+                    src="../../../../public/icones/paiN.png"
+                  alt="User Image"
+                />
+              </a>
+            </Components.avatar>
             <h3>Loud - Vitória</h3>
       </div>
         <Components.player>
@@ -544,7 +606,7 @@ const App: React.FC = () => {
               <Components.avatarA href="#"> </Components.avatarA>
               <a href="#" className="icon">
                 <Components.teams2Img
-                  src="../../../../public/icones/g2esports.png"
+                    src="../../../../public/icones/paiN.png"
                   alt="User Image"
                 />
               </a>

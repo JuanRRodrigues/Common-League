@@ -7,11 +7,7 @@ interface SignInProps {
 }
 
 export const Container = styled.div`
-  border-radius: 10px;
-  overflow: hidden;
-  width: 678px;
-  max-width: 100%;
-  min-height: 400px;
+
 `;
 
 export const SignUpContainer = styled.div<SignInProps>`
@@ -28,6 +24,9 @@ export const SignUpContainer = styled.div<SignInProps>`
     opacity: 1;
     z-index: 5;
   ` : null}
+    @media (max-width: 720px) {
+
+  }
 `;
 
 export const SignInContainer = styled.div<SignInProps>`
@@ -38,7 +37,12 @@ export const SignInContainer = styled.div<SignInProps>`
   left: 0;
   width: 50%;
   z-index: 2;
-  ${props => !props.$signinIn ? `transform: translateX(100%);` : null}
+  ${props => !props.$signinIn ? `transform: translateY(100%);` : null}
+  @media (max-width: 720px) {
+    height: 50%;
+    width: 100%;
+
+  }
 `;
 
 export const Form = styled.form`
@@ -50,6 +54,11 @@ export const Form = styled.form`
   padding: 0 50px;
   height: 100%;
   text-align: center;
+
+  @media (max-width: 720px) {
+
+
+  }
 `;
 
 export const Title = styled.h1`
@@ -57,6 +66,11 @@ export const Title = styled.h1`
   margin: 0;
   text-shadow: 1px 1px 2px black;
   color: white;
+
+  @media (max-width: 720px) {
+
+
+}
 `;
 
 export const Input = styled.input`
@@ -108,6 +122,11 @@ export const OverlayContainer = styled.div<SignInProps>`
   transition: transform 0.6s ease-in-out;
   z-index: 100;
   ${props => !props.$signinIn ? `transform: translateX(-100%);` : null}
+  @media (max-width: 720px) {
+    left: 0;
+    bottom: 50%;
+    ${props => !props.$signinIn ? `transform: translateY(-100%);` : null}
+}
 `;
 
 export const Overlay = styled.div<SignInProps>`
@@ -118,10 +137,18 @@ export const Overlay = styled.div<SignInProps>`
   position: relative;
   left: -100%;
   height: 100%;
-  width: 200%;
+  
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
   ${props => !props.$signinIn ? `transform: translateX(50%);` : null}
+  @media (max-width: 720px) {
+    background: url(${props => props.imageUrl});
+    height: 50%;
+    width: 200%;
+    top: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out; // Cor diferente para telas menores
+  }
 `;
 
 export const OverlayPanel = styled.div`

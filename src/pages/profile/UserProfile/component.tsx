@@ -66,7 +66,16 @@ export const userName = styled.span`
     bottom: 70%;
 
 `;
-export const span1 = styled.span`
+export const span1 = styled.a`
+    position: relative ;
+    left: 50%; 
+    bottom: 82%;
+    color: #ffffff;
+    font-size: 2rem;
+
+`;
+
+export const LevelUserBanner = styled.span`
     bottom: 75%;
     position: relative;
     padding-left: 34%; 
@@ -212,9 +221,11 @@ export const historicBanner = styled.section`
   //bottom: 800px;
   left: 2.5%;
   height: 50%;
+  padding-top: 2%;
   display: flex;
   background: none;
   color: white;
+  text-align: center;
   transition: 1s;
   flex-direction: column; /* Alinhamento em coluna */
  
@@ -245,23 +256,30 @@ export const Main = styled.main`
 `;
 
 export const verificado = styled.button`
-position: relative;
-bottom: 60%;
-
-   background-color: #05ad29;
-   color: white;
+   position: relative;
+   bottom: 5%;
+   right: 65%;
+   background-color: #00a2ff;
+   color: #ffffff;
+   border-radius: 5px;
    font-size: 1rem;
    border: none;
 `;
 
 export const editProfile = styled.button`
-position: relative;
-bottom: 60%;
+  position: relative;
+  bottom: 70%;
+  right: 41%;
+  background-color: rgba(137, 137, 138, 0.2);
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer; 
 
-   background-color: #05ad29;
-   color: white;
-   font-size: 1rem;
-   border: none;
+  
+  &:hover {
+    background-color: rgba(137, 137, 138, 0.5); 
+  }
 `;
 
 export const teamOne = styled.div`
@@ -310,7 +328,7 @@ export const imgSpellOneTeamOne = styled.img`
  width: 25px;
 `;
 export const spellsDiv = styled.div`
-top: 50px;
+  top: 50px;
   display: flex;
   flex-direction: column; 
 `;
@@ -406,12 +424,8 @@ export const tagElo = styled.div`
 export const textRankA = styled.a`
     position: relative;
     font-size: 16px;
-    
-  
     padding-left: 38px;
-    background-color: none;
-   
-    
+    background-color: none;    
 `;
 
 export const tagEloinfo = styled.div`
@@ -441,7 +455,6 @@ export const tagEloinfoDiamond = styled.li`
     position: relative;
     font-size: 16px;
     list-style-type: none;
-
     gap: 20px;
     width: 100%;
     color: #2f90df;
@@ -452,7 +465,6 @@ export const tagEloinfoGrandMaster = styled.li`
     position: relative;
     font-size: 16px;
     list-style-type: none;
-
     gap: 20px;
     width: 100%;
     color: #e7382c;
@@ -462,19 +474,11 @@ export const teams1Img = styled.img`
   position: relative;
     width: 80%;
     height: 80%;
-    left: 18px;
     border-radius: 10%;
 
 `;
 
-export const teams2Img = styled.img`
-  position: relative;
-    width: 60%;
-    height: 60%;
-    left: 25px;
-    border-radius: 10%;
 
-`;
 
 export const sideBarImg = styled.img`
     position: relative;
@@ -505,14 +509,15 @@ export const sideBarImgRiot = styled.img`
     width: 40%;
     height: 40%;
     border-radius: 100%;
+    right: 26%;
 
 `;
 
 export const sideBarUserRiot = styled.div`
   position: relative;
- padding-top: 10px;
+  padding-top: 10px;
   display: flex;
-  align-items: center; /* Alinha o ícone e o texto verticalmente ao centro */
+  align-items: center; 
   right: 25px;
   border-radius: 10%;
  
@@ -523,4 +528,12 @@ export const sideBarUserRiotText = styled.h3`
 position: absolute;
 left: 40%;
  font-size: 1rem;
+`;
+
+
+
+export const teams2Img = styled.img`
+  width: 100px; 
+  height: auto;
+  margin-right: 10px; 
 `;

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import CircularProgress from '@mui/material/CircularProgress';
 import PlayerService from '../service/playerService';
-import TeamService from '../service/teamService';
-import GameService from '../service/teamService'; // Atualize o caminho, se necessário
+import TeamService from '../service/torneio';
+import GameService from '../service/torneio'; // Atualize o caminho, se necessário
 
 interface CreateAutoCompleteProps {
   name: 'player' | 'team' | 'game';
@@ -47,7 +47,7 @@ export default function CreateAutoComplete({
 
         if (name === 'player') {
           const playerService = new PlayerService();
-          results = (await playerService.consult()).data;
+         // results = (await playerService.consult()).data;
         } else if (name === 'team') {
           const teamService = new TeamService();
           results = (await teamService.consult()).data;

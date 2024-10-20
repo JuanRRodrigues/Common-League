@@ -1,6 +1,6 @@
 
 import { styled } from "styled-components"
-import EstilosGlobais from "../componentes/GlobaStyle";
+import EstilosGlobais from "../../componentes/GlobaStyle";
 import Cadastro from "../componentes/Cadastro";
 
 const Backgroundgradient = styled.div`

@@ -7,9 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { Formik, FormikHelpers } from "formik";
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
-import { changeLanguage } from 'i18next';
+import { useAuth } from '../../security/AuthContext'; 
 
-// Definindo os tipos dos valores do formulário
+
+import { changeLanguage } from 'i18next';
+import UserService from "../../service/AuthService";
+
+
+
+
+const userService = new UserService();
+
 interface FormValues {
   login: string;
   fullName: string;
@@ -23,6 +31,8 @@ interface FormValuesLogin {
   password: string;
 
 }
+
+
 
 const Backgroundgradient = styled.div`
   background: linear-gradient(174.61deg, #141d26 4.16%, #1a2633 48%, #151515 96.76%);
@@ -53,7 +63,7 @@ const App: React.FC = () => {
   const navigate = useNavigate();
   const [signIn, toggle] = React.useState(true);
   const [imageUrl, setImageUrl] = React.useState('');
-
+  const { login } = useAuth();
   const imageUrls = [
     '/imagens/galeria/6.mp4'
   ];
@@ -96,32 +106,23 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const handleFormSubmitLogin = (values: FormValuesLogin, actions: FormikHelpers<FormValuesLogin>) => {
-    http.post('auth/login', values, {})
-      .then(response => {
-        sessionStorage.removeItem('token');
-        sessionStorage.setItem('token', response.data.token);
-        localStorage.setItem('login', values.login);
-        console.log(response.data);
-        actions.resetForm();
-        navigate('/');
-      })
-      .catch(error => {
-        console.error('Error', error);
-      });
+  const handleLogin = async (values: FormValuesLogin, actions: FormikHelpers<FormValuesLogin>) => {
+    try {
+      const response = await userService.logar(values, actions);
+      login(response.token);
+      navigate('/profiles');
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
   };
 
-  const handleFormSubmitRegister = (values: FormValues, actions: FormikHelpers<FormValues>) => {
-    http.post('auth/register', values, {})
-      .then(response => {
-        console.log(response.data);
-        actions.resetForm();
-      })
-      .catch(error => {
-        console.error('Error', error);
-      });
+  const handleFormSubmitRegister = async (values: FormValues, actions: FormikHelpers<FormValues>) => {
+    try {
+      await userService.registrar(values, actions);
+    } catch (error) {
+      console.error('Error', error);
+    }
   };
-
   return (
     
     <Backgroundgradient>
@@ -200,7 +201,7 @@ const App: React.FC = () => {
          
         } as FormValuesLogin}
     //    validationSchema={validationSchema}
-        onSubmit={handleFormSubmitLogin}
+        onSubmit={handleLogin}
       >
         {({ errors, touched, handleChange, handleBlur, handleSubmit, values }) => (
           <Components.SignInContainer $signinIn={signIn}>

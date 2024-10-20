@@ -20,17 +20,15 @@ export const optionDiv = styled.div`
 export const optionLi = styled.li`
     padding: 20px;
     list-style-type: none;
-    cursor: pointer; /* Para indicar que é interativo */
+    cursor: pointer; 
 
-    /* Estilo padrão */
-    background-color: transparent; /* Cor de fundo padrão */
-    color: #a09f9f; /* Cor do texto padrão */
+    background-color: transparent; 
+    color: #a09f9f; 
 
-    /* Estilo de hover */
     &:hover {
-        background-color: rgba(255, 255, 255, 0.2); /* Cor de fundo ao passar o mouse */
-        color: #fafafa; /* Cor do texto ao passar o mouse */
-        transition: background-color 0.3s ease; /* Transição suave */
+        background-color: rgba(255, 255, 255, 0.2); 
+        color: #fafafa; 
+        transition: background-color 0.3s ease; 
     }
 `;
 
@@ -71,9 +69,6 @@ export const avatarEditProfileSpan = styled.span`
     font-size: 1rem;
 `;
 
-
-
-
 export const Section = styled.section`
   overflow: hidden;
   position: absolute;
@@ -97,7 +92,6 @@ export const Section = styled.section`
     opacity: 1;
   }
 `;
-
 
 export const Banner = styled.section`
   position: relative;
@@ -267,4 +261,50 @@ export const formEditInput = styled.input`
 
   export const formEditLabel = styled.label`
   color: #b9b9b9;
+`;
+
+
+export const avatarImgEdit = styled.img`
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 10%;
+    bottom: 70px;
+    left: 250px;
+    
+
+    .active {
+     
+    
+  }
+`;
+
+export const avatarEditTitle = styled.h1`
+   bottom: 60px;
+    position: relative;
+    color: white;
+    font-size: 1.5rem;
+    left: 20px;
+`;
+
+export const uploadImg = styled.label`
+position: relative;
+  background-color: rgba(184, 184, 184, 0.2);
+  width: 50%; /* Aumenta a largura */
+  height: 50px; /* Ajuste para o tamanho que preferir */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 20%;
+ 
+  cursor: pointer;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 20px; /* Bordas arredondadas */
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(184, 184, 184, 0.4); /* Mudança de cor ao hover */
+  }
 `;

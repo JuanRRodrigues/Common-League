@@ -1,4 +1,5 @@
-import ApiService from "../apiService";
+import ApiService from "../apiService"; // Certifique-se de que o caminho está correto
+import axios from "axios";
 
 interface User {
   id: number;
@@ -14,7 +15,7 @@ class UserService extends ApiService {
     return this.get(`/${id}`);
   }
 
-  save(user:User): Promise<any> {
+  save(user: User): Promise<any> {
     return this.post(`/`, user);
   }
 
@@ -28,6 +29,10 @@ class UserService extends ApiService {
 
   remove(id: number): Promise<any> { 
     return this.delete(`/${id}`);
+  }
+
+  getCurrentUser(): Promise<any> { 
+    return this.get('/auth/current-user');
   }
 }
 

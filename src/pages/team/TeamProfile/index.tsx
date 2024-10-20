@@ -26,7 +26,6 @@ const Backgroundgradient = styled.main`
   transition: 0.5s;
 `;
 
-// Define the App component
 const App: React.FC = () => {
 
   const [active, setActive] = useState(false);
